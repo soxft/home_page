@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 
 import axios from "axios";
-import { Typography, Card, CardContent, Grid, Divider, List, ListItem, ListItemText } from "@mui/material";
+import { Typography, Card, CardContent, Grid, Divider, List, ListItem, ListItemText, Skeleton } from "@mui/material";
 
 const Home = () => {
 
@@ -94,20 +94,65 @@ const Home = () => {
                             {t('article_desc')}
                         </Typography>
                         <Divider />
-                        <br />
                         <List>
                             { // 我的网站
-                                [
-                                    ['timeletters', 'https://www.timeletters.cn'],
-                                    ['urlshorter', 'https://github.com/soxft/urlshorter'],
-                                    ['lovewall', 'https://love.xsot.cn'],
-                                    ['etc', 'https://github.com/soxft'],
-                                ].map((item, index) => {
+                                [[], [], [], []].map((item, index) => {
                                     return <ListItem onClick={() => HandleJump(item[1])} button key={index}>
-                                        <ListItemText
-                                            //sx={{ color: 'gray' }}
-                                            primary={<div dangerouslySetInnerHTML={{ __html: t(item[0]) }}></div>}
-                                        />
+                                        <Skeleton width="100%" variant="text" />
+                                    </ListItem>;
+                                })
+                            }
+                        </List>
+                    </CardContent>
+                </Card>
+            </Grid>
+            {/* 天气预报 */}
+            <Grid item md={4} xs={12}>
+                <Card sx={{ opacity: 0.7 }}>
+                    <CardContent>
+                        <Typography
+                            variant="h5"
+                        >
+                            {t('article')}
+                        </Typography>
+                        <Typography
+                            variant="caption"
+                        >
+                            {t('article_desc')}
+                        </Typography>
+                        <Divider />
+                        <List>
+                            { // 我的网站
+                                [[], [], [], []].map((item, index) => {
+                                    return <ListItem onClick={() => HandleJump(item[1])} button key={index}>
+                                        <Skeleton width="100%" variant="text" />
+                                    </ListItem>;
+                                })
+                            }
+                        </List>
+                    </CardContent>
+                </Card>
+            </Grid>
+            {/* 其他信息 */}
+            <Grid item md={4} xs={12}>
+                <Card sx={{ opacity: 0.7 }}>
+                    <CardContent>
+                        <Typography
+                            variant="h5"
+                        >
+                            {t('article')}
+                        </Typography>
+                        <Typography
+                            variant="caption"
+                        >
+                            {t('article_desc')}
+                        </Typography>
+                        <Divider />
+                        <List>
+                            { // 我的网站
+                                [[], [], [], []].map((item, index) => {
+                                    return <ListItem onClick={() => HandleJump(item[1])} button key={index}>
+                                        <Skeleton width="100%" variant="text" />
                                     </ListItem>;
                                 })
                             }

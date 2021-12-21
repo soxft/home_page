@@ -25,7 +25,10 @@ const en = {
         timeletters: '<strong>Timeletters:</strong> Write a letter to the future',
         urlshorter: '<strong>Uroshorter:</strong> Concise URL shortening tool',
         lovewall: '<strong>lovewall:</strong> Concise confession wall',
-        etc: 'And more...'
+        etc: 'And more...',
+        article: 'Random article',
+        article_desc: 'Get 4 articles randomly',
+        weather: 'Weather forecast'
     }
 }
 
