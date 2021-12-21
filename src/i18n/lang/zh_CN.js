@@ -1,3 +1,5 @@
+import { Article } from "@mui/icons-material";
+
 const zh_CN = {
     desc: {
         title: 'XCSOFT',
@@ -19,15 +21,15 @@ const zh_CN = {
         github: 'Github'
     },
     home: {
-        desc: 'Hi there, I am xcsoft, 一个来自中国东部的学生.<br />无聊的时候, 了解过许多编程语言.接触过跨端软件开发, 后端开发, 基础前端制作.<br/>对Linux运维有一定了解, 喜欢折腾一些莫名其妙的东西.',
+        desc: '&emsp;Hi there, I am xcsoft, 一个来自中国东部的学生.<br />&emsp;无聊的时候, 了解过许多编程语言.接触过跨端软件开发, 后端开发, 基础前端制作.<br/>&emsp;对Linux运维有一定了解, 喜欢折腾一些莫名其妙的东西.',
         my_proj: '我的项目',
         my_proj_desc: '这是一堆心血来潮时随手写下来的，不知道后续更新/维护/完善是什么时候的事情',
         timeletters: '<strong>拾光邮局:</strong> 给未来写封信',
         urlshorter: '<strong>星辰短域:</strong> 简洁的网址缩短工具',
         lovewall: '<strong>星辰表白墙:</strong> 简洁的表白墙',
-        etc: '还有更多...'
-        //a
-        
+        etc: '还有更多...',
+        article: '随机文章',
+        article_desc: '随机获取4篇文章',
     },
 }
 

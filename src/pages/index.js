@@ -155,18 +155,13 @@ const Index = () => {
             <Outlet />
         </Container>
         <div style={{ height: "20px" }} />
-        <div
-            id='footer'
-            style={{ position: 'fixed', bottom: '2px', width: '100%', opacity: '0.7' }}
+        <Divider />
+        <Typography
+            variant="caption"
+            color="gray"
         >
-            <Divider />
-            <Typography
-                variant="caption"
-                color="gray"
-            >
-                &ensp;Copyright 2021 xcsoft All Rights Reserved.
-            </Typography>
-        </div>
+            &ensp;Copyright 2021 xcsoft All Rights Reserved.
+        </Typography>
     </>;
 }
 

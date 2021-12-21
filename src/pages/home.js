@@ -7,6 +7,8 @@ import { Typography, Card, CardContent, Grid, Divider, List, ListItem, ListItemT
 const Home = () => {
 
     const [sentense, setSentense] = useState('...')
+    const [weatherLoad, setWeatherLoad] = useState(false);
+    const [blogLoad, setBlogLoad] = useState(false);
     const [t] = useTranslation('home');
 
     const HandleJump = (url) => window.open(url);
@@ -23,20 +25,6 @@ const Home = () => {
             container
             spacing={3}
         >
-            <Grid item xs={12} id='home_screen'>
-                <Card sx={{ opacity: 0.7 }}>
-                    <CardContent>
-                        <center>
-                            <Typography
-                                variant="overline"
-                                sx={{ fontSize: 20 }}
-                            >
-                                {t('subtitle', { ns: 'desc' })}
-                            </Typography>
-                        </center>
-                    </CardContent>
-                </Card>
-            </Grid>
             <Grid item xs={12}>
                 <Card sx={{ opacity: 0.7 }}>
                     <CardContent>
@@ -54,15 +42,12 @@ const Home = () => {
                         <br />
                         <Typography
                             variant="body"
+                            sx={{ fontSize: 18 }}
                         >
                             <div dangerouslySetInnerHTML={{ __html: t('desc') }}></div>
                         </Typography>
-                    </CardContent>
-                </Card>
-            </Grid>
-            <Grid item md={4} xs={12}>
-                <Card sx={{ opacity: 0.7 }}>
-                    <CardContent>
+                        <br />
+                        { /* 我的项目 */}
                         <Typography
                             variant="h5"
                         >
@@ -74,7 +59,6 @@ const Home = () => {
                             {t('my_proj_desc')}
                         </Typography>
                         <Divider />
-                        <br />
                         <List>
                             { // 我的网站
                                 [
@@ -95,18 +79,19 @@ const Home = () => {
                     </CardContent>
                 </Card>
             </Grid>
+            {/* 随机文章 */}
             <Grid item md={4} xs={12}>
                 <Card sx={{ opacity: 0.7 }}>
                     <CardContent>
                         <Typography
                             variant="h5"
                         >
-                            {t('my_proj')}
+                            {t('article')}
                         </Typography>
                         <Typography
                             variant="caption"
                         >
-                            {t('my_proj_desc')}
+                            {t('article_desc')}
                         </Typography>
                         <Divider />
                         <br />
