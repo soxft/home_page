@@ -1,5 +1,3 @@
-import { Article } from "@mui/icons-material";
-
 const zh_CN = {
     desc: {
         title: 'XCSOFT',

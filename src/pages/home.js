@@ -3,7 +3,6 @@ import { useTranslation } from "react-i18next";
 
 import axios from "axios";
 import { Typography, Card, CardContent, Grid, Divider, List, ListItem, ListItemText, Skeleton } from "@mui/material";
-import { SignalCellularNullOutlined } from "@mui/icons-material";
 
 const Home = () => {
 
