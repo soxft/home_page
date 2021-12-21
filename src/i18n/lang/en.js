@@ -29,7 +29,7 @@ const en = {
         article: 'Random article',
         article_desc: 'Get 4 articles randomly',
         weather: 'Weather forecast',
-        weather_update: 'update on',
+        weather_update: 'update on ',
         weather_detail: 'Weather details'
     }
 }

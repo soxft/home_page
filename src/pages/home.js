@@ -30,8 +30,12 @@ const Home = () => {
 
         axios.get('https://api.xsot.cn/weather/?ip=true')
             .then((res) => {
-                setWeatherData(res['data'])
-                setWeatherLoad(false);
+                if (res['data']['code'] === 200) {
+                    setWeatherData(res['data'])
+                    setWeatherLoad(false);
+                } else {
+                    console.log(t('request_err'))
+                }
             })
             .catch((e) => console.log('request_weather_err'));
         // eslint-disable-next-line react-hooks/exhaustive-deps
