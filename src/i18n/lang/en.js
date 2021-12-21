@@ -28,7 +28,9 @@ const en = {
         etc: 'And more...',
         article: 'Random article',
         article_desc: 'Get 4 articles randomly',
-        weather: 'Weather forecast'
+        weather: 'Weather forecast',
+        weather_update: 'update on',
+        weather_detail: 'Weather details'
     }
 }
 

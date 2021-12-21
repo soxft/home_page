@@ -30,7 +30,9 @@ const zh_CN = {
         etc: '还有更多...',
         article: '随机文章',
         article_desc: '随机获取4篇文章',
-        weather: '天气预报'
+        weather: '天气预报',
+        weather_update: '更新于',
+        weather_detail: '详细天气'
     },
 }
 

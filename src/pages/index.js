@@ -151,7 +151,7 @@ const Index = () => {
             </Box>
         </Drawer>
         <div style={{ height: "10px" }} />
-        <Container>
+        <Container maxWidth="xl">
             <Outlet />
         </Container>
         <div style={{ height: "20px" }} />
