@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Outlet } from 'react-router-dom';
 
 import {
     Menu as MenuIcon,
-    Inbox as InboxIcon,
-    Mail as MailIcon,
+    MailOutline as MailIcon,
+    ChevronLeft as ChevronLeftIcon,
+    BookOutlined as BookIcon,
+    CreditCardOutlined as CreditCardIcon,
+    GitHub as GitHubIcon
 } from '@mui/icons-material';
 import {
     Typography,
@@ -19,12 +22,21 @@ import {
     Divider,
     ListSubheader,
     Box,
+    Avatar,
+    ListItemAvatar,
+    Container,
 } from "@mui/material";
 
+import { useTranslation } from "react-i18next"
+
 const Index = () => {
+    const { t } = useTranslation('drawer');
     const [open, setOpen] = useState(false);
+
+    const HandleJump = (url) => window.open(url);
+
     return <>
-        <AppBar position="fixed" open={open}>
+        <AppBar position="fixed" open={open} color="transparent">
             <Toolbar>
                 <IconButton
                     color="inherit"
@@ -38,16 +50,17 @@ const Index = () => {
                     <MenuIcon />
                 </IconButton>
                 <Typography
-                    variant="h6"
+                    variant="overline"
                     noWrap
                     component="div"
-                    sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
+                    sx={{ fontSize: 20 }}
                 >
                     XCSOFT
                 </Typography>
             </Toolbar>
         </AppBar>
         <Toolbar />
+        {/* 侧边抽屉 */}
         <Drawer
             anchor='left'
             open={open}
@@ -60,24 +73,94 @@ const Index = () => {
                 sx={{ width: 250 }}
                 role="presentation"
             >
-                <Toolbar />
+                <Toolbar>
+                    <IconButton onClick={() => setOpen(false)}>
+                        <ChevronLeftIcon />
+                    </IconButton>
+                </Toolbar>
                 <Divider />
+                {/* 我的网站 */}
                 <List
                     subheader={
                         <ListSubheader component="div" id="nested-list-subheader">
-                            Nested List Items
+                            {t('subtitle_mysite')}
                         </ListSubheader>
-                    }>
-                    <ListItem button key=''>
-                        <ListItemIcon>
-                            <InboxIcon />
-                        </ListItemIcon>
-                        <ListItemText primary='1' />
-                    </ListItem>
+                    }
+                >
+                    { // 我的网站
+                        [
+                            ['blog', <BookIcon />, 'https://blog.xsot.cn'],
+                            ['timeletters', <MailIcon />, 'https://www.timeletters.cn'],
+                            ['poorsite', <CreditCardIcon />, 'https://pay.xsot.cn'],
+                        ].map((item, index) => {
+                            return <ListItem onClick={() => HandleJump(item[2])} button key={index}>
+                                <ListItemIcon>
+                                    {item[1]}
+                                </ListItemIcon>
+                                <ListItemText sx={{ color: 'gray' }} primary={t(item[0])} />
+                            </ListItem>;
+                        })
+                    }
+                </List>
+                <Divider />
+                {/* 找到我 */}
+                <List
+                    subheader={
+                        <ListSubheader component="div" id="nested-list-subheader">
+                            {t('subtitle_findme')}
+                        </ListSubheader>
+                    }
+                >
+                    { // 我的网站
+                        [
+                            ['Github', <GitHubIcon />, 'https://github.com/soxft'],
+                        ].map((item, index) => {
+                            return <ListItem onClick={() => HandleJump(item[2])} button key={index}>
+                                <ListItemIcon>
+                                    {item[1]}
+                                </ListItemIcon>
+                                <ListItemText sx={{ color: 'gray' }} primary={t(item[0])} />
+                            </ListItem>;
+                        })
+                    }
+                </List>
+                <Divider />
+                {/* 推荐链接 */}
+                <List
+                    subheader={
+                        <ListSubheader component="div" id="nested-list-subheader">
+                            {t('subtitle_suggest')}
+                        </ListSubheader>
+                    }
+                >
+                    { // 我的网站
+                        [
+                            ['泽', "Z", 'https://blog.stzo.cn'],
+                            ['源源日记', "Y", 'https://blog.bsot.cn'],
+                            ['MDUI', 'M', 'https://mui.com'],
+                        ].map((item, index) => {
+                            return <ListItem onClick={() => HandleJump(item[2])} button key={index}>
+                                <ListItemAvatar>
+                                    <Avatar sx={{ bgcolor: "transparent", color: 'gray', width: 28, height: 28 }}>{item[1]}</Avatar>
+                                </ListItemAvatar>
+                                <ListItemText sx={{ color: 'gray' }} primary={item[0]} />
+                            </ListItem>;
+                        })
+                    }
                 </List>
             </Box>
         </Drawer>
-        <Outlet />
+        <Container>
+            <Outlet />
+        </Container>
+        <div style={{ height: "20px" }} />
+        <Divider />
+        <Typography
+            variant="caption"
+            color="gray"
+        >
+            &ensp;Copyright 2021 xcsoft All Rights Reserved.
+        </Typography>
     </>;
 }
 
