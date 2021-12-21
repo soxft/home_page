@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Outlet } from 'react-router-dom';
 
 import {
@@ -150,17 +150,23 @@ const Index = () => {
                 </List>
             </Box>
         </Drawer>
+        <div style={{ height: "10px" }} />
         <Container>
             <Outlet />
         </Container>
         <div style={{ height: "20px" }} />
-        <Divider />
-        <Typography
-            variant="caption"
-            color="gray"
+        <div
+            id='footer'
+            style={{ position: 'fixed', bottom: '2px', width: '100%', opacity: '0.7' }}
         >
-            &ensp;Copyright 2021 xcsoft All Rights Reserved.
-        </Typography>
+            <Divider />
+            <Typography
+                variant="caption"
+                color="gray"
+            >
+                &ensp;Copyright 2021 xcsoft All Rights Reserved.
+            </Typography>
+        </div>
     </>;
 }
 

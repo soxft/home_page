@@ -17,6 +17,15 @@ const en = {
         blog: 'My Blog',
         poorsite: 'Poverty Site',
         github: 'Github'
+    },
+    home: {
+        desc: 'Hi there, I am xcsoft, a student from Eastern China.<br />When I was bored, I knew many programming languages. I had exposure to cross-end software development, back-end development, and basic front-end production.<br /> Have a certain understanding of Linux operation and maintenance, and like to toss some inexplicable things.',
+        my_proj: 'My project',
+        my_proj_desc: 'This is a bunch of handwriting on a whim, I don\'t know when the update/maintenance/improvement will happen',
+        timeletters: '<strong>Timeletters:</strong> Write a letter to the future',
+        urlshorter: '<strong>Uroshorter:</strong> Concise URL shortening tool',
+        lovewall: '<strong>lovewall:</strong> Concise confession wall',
+        etc: 'And more...'
     }
 }
 

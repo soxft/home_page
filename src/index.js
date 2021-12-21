@@ -55,7 +55,7 @@ const Main = () => {
       </Routes>
     </Router>
     {/* 切换语言 */}
-    <Fab aria-controls="lang_menu" onClick={handleLangMenuOpen} size="small" aria-label="change language" style={{ position: 'fixed', bottom: '50px', right: '50px', opacity: '0.75' }}>
+    <Fab aria-controls="lang_menu" onClick={handleLangMenuOpen} size="small" aria-label="change language" sx={{ position: 'fixed', bottom: '50px', right: '50px', opacity: '0.5' }}>
       <GTranslateIcon />
     </Fab>
     <Menu
