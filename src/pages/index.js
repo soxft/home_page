@@ -6,7 +6,6 @@ import {
     MailOutline as MailIcon,
     ChevronLeft as ChevronLeftIcon,
     BookOutlined as BookIcon,
-    CreditCardOutlined as CreditCardIcon,
     GitHub as GitHubIcon
 } from '@mui/icons-material';
 import {
@@ -91,7 +90,6 @@ const Index = () => {
                         [
                             ['blog', <BookIcon />, 'https://blog.xsot.cn'],
                             ['timeletters', <MailIcon />, 'https://www.timeletters.cn'],
-                            ['poorsite', <CreditCardIcon />, 'https://pay.xsot.cn'],
                         ].map((item, index) => {
                             return <ListItem onClick={() => HandleJump(item[2])} button key={index}>
                                 <ListItemIcon>

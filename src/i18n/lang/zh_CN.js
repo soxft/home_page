@@ -15,7 +15,6 @@ const zh_CN = {
         subtitle_suggest: '推荐链接',
         timeletters: '拾光邮局',
         blog: '星辰日记',
-        poorsite: '贫穷网',
         github: 'Github'
     },
     home: {

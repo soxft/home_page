@@ -15,7 +15,6 @@ const en = {
         subtitle_suggest: 'Referral link',
         timeletters: 'Timeletters',
         blog: 'My Blog',
-        poorsite: 'Poverty Site',
         github: 'Github'
     },
     home: {
