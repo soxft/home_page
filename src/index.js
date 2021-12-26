@@ -43,7 +43,6 @@ const Main = () => {
   return <>
     <Helmet>
       <title>{t('title')} - {t('subtitle')}</title>
-      <meta name="description" content={t('description')} />
     </Helmet>
     <Router>
       {/* 路由 */}

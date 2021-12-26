@@ -63,11 +63,16 @@ const Home = () => {
                         <br />
                         <Typography
                             variant="body"
-                            sx={{ fontSize: 18 }}
+                            sx={{ fontSize: 17 }}
                         >
                             <div dangerouslySetInnerHTML={{ __html: t('desc') }}></div>
                         </Typography>
-                        <br />
+                    </CardContent>
+                </Card>
+            </Grid>
+            <Grid item xs={12}>
+                <Card sx={{ opacity: 0.7 }}>
+                    <CardContent>
                         { /* 我的项目 */}
                         <Typography
                             variant="h5"
@@ -81,26 +86,28 @@ const Home = () => {
                         </Typography>
                         <Divider />
                         <List>
-                            { // 我的网站
+                            { // 我的项目
                                 [
                                     ['timeletters', 'https://www.timeletters.cn'],
                                     ['urlshorter', 'https://github.com/soxft/urlshorter'],
                                     ['lovewall', 'https://love.xsot.cn'],
                                     ['etc', 'https://github.com/soxft'],
                                 ].map((item, index) => {
-                                    return <ListItem onClick={() => HandleJump(item[1])} button key={index}>
-                                        <ListItemText
-                                            primary={<div dangerouslySetInnerHTML={{ __html: t(item[0]) }}></div>}
-                                        />
-                                    </ListItem>;
+                                    return (
+                                        <ListItem onClick={() => HandleJump(item[1])} button key={index}>
+                                            <ListItemText
+                                                primary={<div dangerouslySetInnerHTML={{ __html: t(item[0]) }}></div>}
+                                            />
+                                        </ListItem>
+                                    );
                                 })
                             }
                         </List>
                     </CardContent>
-                </Card>
-            </Grid>
+                </Card >
+            </Grid >
             {/* 随机文章 */}
-            <Grid item md={6} xs={12}>
+            < Grid item md={6} xs={12} >
                 <Card sx={{ opacity: 0.7 }}>
                     <CardContent>
                         <Typography
@@ -115,26 +122,28 @@ const Home = () => {
                         </Typography>
                         <Divider />
                         <List>
-                            { // 我的网站
+                            {
                                 blogData.map((item, index) => {
-                                    return <ListItem onClick={() => blogLoad ? null : HandleJump(item['url'])} button key={index}>
-                                        {
-                                            blogLoad ? <Skeleton width="100%" height='32px' variant="text" /> :
-                                                <>
-                                                    <ListItemText
-                                                        primary={item['title'].length > 20 ? item['title'].substr(0, 20) + '...' : item['title']}
-                                                    />
-                                                </>
-                                        }
-                                    </ListItem>;
+                                    return (
+                                        <ListItem onClick={() => blogLoad ? null : HandleJump(item['url'])} button key={index}>
+                                            {
+                                                blogLoad ? <Skeleton width="100%" height='32px' variant="text" /> :
+                                                    <>
+                                                        <ListItemText
+                                                            primary={item['title'].length > 20 ? item['title'].substr(0, 20) + '...' : item['title']}
+                                                        />
+                                                    </>
+                                            }
+                                        </ListItem>
+                                    );
                                 })
                             }
                         </List>
                     </CardContent>
                 </Card>
-            </Grid>
+            </Grid >
             {/* 天气预报 */}
-            <Grid item md={6} xs={12}>
+            < Grid item md={6} xs={12} >
                 <Card sx={{ opacity: 0.7 }}>
                     <CardContent>
                         <Typography
@@ -182,8 +191,8 @@ const Home = () => {
                         </List>
                     </CardContent>
                 </Card>
-            </Grid>
-        </Grid>
+            </Grid >
+        </Grid >
     </>;
 }
 
