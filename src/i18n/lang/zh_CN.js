@@ -2,6 +2,7 @@ const zh_CN = {
     desc: {
         title: 'XCSOFT',
         subtitle: '原諒我這一生 不羁放纵爱自由',
+        description: '原諒我這一生 不羁放纵爱自由',
     },
     global: {
         request_err: '请求失败',
