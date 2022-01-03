@@ -28,16 +28,16 @@ const Home = () => {
             })
             .catch((e) => console.log('request_blog_err'));
 
-        axios.get('https://api.xsot.cn/weather/?ip=true')
+        axios.get('https://api.xsot.cn/weather/ip')
             .then((res) => {
-                if (res['data']['code'] === 200) {
-                    setWeatherData(res['data'])
+                if (res['data']['code'] === 0) {
+                    setWeatherData(res['data']['data'])
                     setWeatherLoad(false);
                 } else {
                     console.log(t('request_err'))
                 }
             })
-            .catch((e) => console.log('request_weather_err'));
+            .catch((e) => console.log('request_weather_err', e));
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
@@ -59,6 +59,7 @@ const Home = () => {
                         >
                             {sentense}
                         </Typography>
+                        <div style={{ height: '5px' }}></div>
                         <Divider />
                         <br />
                         <Typography
@@ -84,6 +85,7 @@ const Home = () => {
                         >
                             {t('my_proj_desc')}
                         </Typography>
+                        <div style={{ height: '5px' }}></div>
                         <Divider />
                         <List>
                             { // 我的项目
@@ -120,6 +122,7 @@ const Home = () => {
                         >
                             {t('article_desc')}
                         </Typography>
+                        <div style={{ height: '5px' }}></div>
                         <Divider />
                         <List>
                             {
@@ -155,9 +158,10 @@ const Home = () => {
                             <Typography
                                 variant="caption"
                             >
-                                {weatherData['area']}
+                                {weatherData['location']['location']}
                             </Typography>
                         }
+                        <div style={{ height: '5px' }}></div>
                         <Divider />
                         <List>
                             { // 我的网站
@@ -168,22 +172,22 @@ const Home = () => {
                                 }) : <>
                                     <ListItem button key={1}>
                                         <ListItemText
-                                            primary={t('weather_update') + weatherData['updatetime']}
+                                            primary={t('weather_update') + ': ' + weatherData['update_time']}
                                         />
                                     </ListItem>
                                     <ListItem button key={2}>
                                         <ListItemText
-                                            primary={weatherData['result']['today']['temp'][0] + "℃ ~ " + weatherData['result']['today']['temp'][1] + '℃'}
+                                            primary={t('weather_temperature') + ': ' + weatherData['weather'][0]['temperature']['low'] + "℃ ~ " + weatherData['weather'][0]['temperature']['high'] + '℃'}
                                         />
                                     </ListItem>
                                     <ListItem button key={3}>
                                         <ListItemText
-                                            primary={weatherData['result']['today']['weather']}
+                                            primary={t('weather_weather') + ': ' + weatherData['weather'][0]['weather']['day'] + ' / ' + weatherData['weather'][0]['weather']['night']}
                                         />
                                     </ListItem>
-                                    <ListItem button onClick={() => HandleJump(weatherData['url'])} key={4}>
+                                    <ListItem button key={4}>
                                         <ListItemText
-                                            primary={t('weather_detail')}
+                                            primary={t('weather_humidity') + ': ' + weatherData['weather'][0]['rain']['humidity'] + '%'}
                                         />
                                     </ListItem>
                                 </>

@@ -29,7 +29,9 @@ const zh_CN = {
         article_desc: '随机获取4篇文章',
         weather: '天气预报',
         weather_update: '更新于',
-        weather_detail: '详细天气'
+        weather_temperature: '气温',
+        weather_humidity: '湿度',
+        weather_weather: '天气',
     },
 }
 
