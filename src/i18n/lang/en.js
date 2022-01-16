@@ -14,7 +14,7 @@ const en = {
         subtitle_findme: 'Find Me',
         subtitle_suggest: 'Referral link',
         timeletters: 'Timeletters',
-        xopenid: 'X OpenID',
+        openid: 'OpenID',
         blog: 'My Blog',
         github: 'Github'
     },

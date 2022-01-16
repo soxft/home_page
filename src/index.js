@@ -3,7 +3,7 @@
  */
 import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
-import { HashRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 import { Helmet } from "react-helmet";
 
@@ -15,10 +15,9 @@ import './css/main.css';
 // pages
 import Index from './pages/index';
 import Home from './pages/home';
-import NotFound from './pages/NotFound'
 // pages END
 
-import { Fab, Menu, MenuItem } from '@mui/material';
+import { Fab, Menu, MenuItem, Container, Typography } from '@mui/material';
 import GTranslateIcon from '@mui/icons-material/GTranslate';
 
 const Main = () => {
@@ -47,10 +46,29 @@ const Main = () => {
     <Router>
       {/* 路由 */}
       <Routes>
+        {/* 基础路由 */}
         <Route path='/' element={<Index />}>
           <Route index element={<Home />}></Route>
         </Route>
-        <Route path="*" element={<NotFound />} />
+        {/* 404 */}
+        <Route path="*" element={
+          (<>
+            <Helmet>
+              <title>404 NotFound - {t('title')}</title>
+              <meta name="description" content={t('description')} />
+            </Helmet>
+            <br />
+            <Container maxWidth="md">
+              <Typography variant="h1" component="div">
+                : (
+              </Typography>
+              <br />
+              <Typography variant="h4">
+                {t('desc', { 'ns': 'not_found' })}
+              </Typography>
+            </Container>
+          </>)
+        } />
       </Routes>
     </Router>
     {/* 切换语言 */}
@@ -69,6 +87,7 @@ const Main = () => {
     </Menu>
   </>;
 }
+
 ReactDOM.render(
   <Main />,
   document.getElementById('root')
