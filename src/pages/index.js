@@ -86,9 +86,10 @@ const Index = () => {
                         </ListSubheader>
                     }
                 >
-                    { // 我的网站
+                    {
                         [
                             ['blog', <BookIcon />, 'https://blog.xsot.cn'],
+                            ['openid', <BookIcon />, 'https://9420.ltd'],
                             ['timeletters', <MailIcon />, 'https://www.timeletters.cn'],
                         ].map((item, index) => {
                             return <ListItem onClick={() => HandleJump(item[2])} button key={index}>
@@ -109,7 +110,7 @@ const Index = () => {
                         </ListSubheader>
                     }
                 >
-                    { // 我的网站
+                    {
                         [
                             ['Github', <GitHubIcon />, 'https://github.com/soxft'],
                         ].map((item, index) => {
@@ -131,7 +132,7 @@ const Index = () => {
                         </ListSubheader>
                     }
                 >
-                    { // 我的网站
+                    {
                         [
                             ['泽', "Z", 'https://blog.stzo.cn'],
                             ['源源日记', "Y", 'https://blog.bsot.cn'],

@@ -14,6 +14,7 @@ const zh_CN = {
         subtitle_findme: '找到我',
         subtitle_suggest: '推荐链接',
         timeletters: '拾光邮局',
+        xopenid: 'X OpenID',
         blog: '星辰日记',
         github: 'Github'
     },
