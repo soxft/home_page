@@ -7,7 +7,7 @@ const en = {
         request_err: 'request failed',
     },
     not_found: {
-        desc: '404 The Page You Visit Does\'t Exists'
+        desc: '404 Page Does\'t Exists'
     },
     drawer: {
         subtitle_mysite: 'My Sites',

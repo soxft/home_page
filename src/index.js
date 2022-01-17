@@ -3,7 +3,7 @@
  */
 import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { HashRouter as Router, Route, Routes } from 'react-router-dom';
 
 import { Helmet } from "react-helmet";
 
@@ -51,8 +51,9 @@ const Main = () => {
           <Route index element={<Home />}></Route>
         </Route>
         {/* 404 */}
-        <Route path="*" element={
-          (<>
+        <Route
+          path="*"
+          element={<>
             <Helmet>
               <title>404 NotFound - {t('title')}</title>
               <meta name="description" content={t('description')} />
@@ -67,8 +68,8 @@ const Main = () => {
                 {t('desc', { 'ns': 'not_found' })}
               </Typography>
             </Container>
-          </>)
-        } />
+          </>}
+        />
       </Routes>
     </Router>
     {/* 切换语言 */}
