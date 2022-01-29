@@ -39,6 +39,14 @@ const Main = () => {
     setAnchorEl(null);
   };
 
+  // prevent select or copy
+  window.document.onselectstart = () => {
+    return false;
+  }
+  window.document.oncontextmenu = () => {
+    return false;
+  }
+
   return <>
     <Helmet>
       <title>{t('title')} - {t('subtitle')}</title>

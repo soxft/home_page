@@ -150,15 +150,13 @@ const Index = () => {
                 </List>
             </Box>
         </Drawer>
-        <div style={{ height: "10px" }} />
-        <Container maxWidth="xl">
+        <Container maxWidth="xl" style={{ paddingTop: "10px", paddingBottom: "20px" }}>
             <Outlet />
         </Container>
-        <div style={{ height: "20px" }} />
-        <Divider />
         <Typography
             variant="caption"
             color="gray"
+            style={{ paddingLeft: "20px" }}
         >
             &ensp;Copyright 2021 xcsoft All Rights Reserved.
         </Typography>

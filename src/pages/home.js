@@ -57,9 +57,7 @@ const Home = () => {
                         >
                             {sentense}
                         </Typography>
-                        <div style={{ height: '5px' }}></div>
-                        <Divider />
-                        <br />
+                        <Divider style={{ paddingTop: '7px', marginBottom: '10px' }} />
                         <Typography
                             variant="body"
                             sx={{ fontSize: 17 }}
@@ -83,8 +81,7 @@ const Home = () => {
                         >
                             {t('my_proj_desc')}
                         </Typography>
-                        <div style={{ height: '5px' }}></div>
-                        <Divider />
+                        <Divider style={{ paddingTop: '7px' }} />
                         <List>
                             { // 我的项目
                                 [
@@ -120,20 +117,28 @@ const Home = () => {
                         >
                             {t('article_desc')}
                         </Typography>
-                        <div style={{ height: '5px' }}></div>
-                        <Divider />
+                        <Divider style={{ paddingTop: '5px' }} />
                         <List>
                             {
                                 blogData.map((item, index) => {
+                                    let titleRow = item['title'] ?? '';
+                                    let title = titleRow.length > 20 ? titleRow.substr(0, 20) + '...' : titleRow;
+                                    let url = item['url'];
+
                                     return (
-                                        <ListItem onClick={() => blogLoad ? null : HandleJump(item['url'])} button key={index}>
+                                        <ListItem onClick={() => blogLoad ? null : HandleJump(url)} button key={index}>
                                             {
-                                                blogLoad ? <Skeleton width="100%" height='32px' variant="text" /> :
-                                                    <>
-                                                        <ListItemText
-                                                            primary={item['title'].length > 20 ? item['title'].substr(0, 20) + '...' : item['title']}
-                                                        />
-                                                    </>
+                                                blogLoad ? <>
+                                                    <Skeleton
+                                                        width="100%"
+                                                        height='32px'
+                                                        variant="text"
+                                                    />
+                                                </> : <>
+                                                    <ListItemText
+                                                        primary={title}
+                                                    />
+                                                </>
                                             }
                                         </ListItem>
                                     );
@@ -144,7 +149,7 @@ const Home = () => {
                 </Card>
             </Grid >
             {/* 天气预报 */}
-            < Grid item md={6} xs={12} >
+            <Grid item md={6} xs={12} >
                 <Card sx={{ opacity: 0.7 }}>
                     <CardContent>
                         <Typography
@@ -152,21 +157,25 @@ const Home = () => {
                         >
                             {t('weather')}
                         </Typography>
-                        {weatherLoad ? <Skeleton width="20%" variant="text" /> :
-                            <Typography
-                                variant="caption"
-                            >
-                                {weatherData['location']['location']}
-                            </Typography>
+                        {
+                            weatherLoad ? <Skeleton width="20%" variant="text" />
+                                : <Typography variant="caption" >
+                                    {weatherData['location']['location']}
+                                </Typography>
                         }
-                        <div style={{ height: '5px' }}></div>
-                        <Divider />
+                        <Divider style={{ paddingTop: '5px' }} />
                         <List>
                             {
                                 weatherLoad ? [[], [], [], []].map((item, index) => {
-                                    return <ListItem button key={index}>
-                                        <Skeleton width="100%" height='32px' variant="text" />
-                                    </ListItem>;
+                                    return (
+                                        <ListItem button key={index}>
+                                            <Skeleton
+                                                width="100%"
+                                                height='32px'
+                                                variant="text"
+                                            />
+                                        </ListItem>
+                                    );
                                 }) : <>
                                     <ListItem button key={1}>
                                         <ListItemText
