@@ -17,7 +17,7 @@ const Home = () => {
     const HandleJump = (url) => window.open(url);
 
     useEffect(() => {
-        axios.get('https://api.xsot.cn/sentence')
+        axios.get('https://x-api.timeletters.cn/sentence')
             .then((response) => setSentense(response['data']['data']['sentence']))
             .catch((e) => setSentense(t('request_err')));
 
@@ -28,7 +28,7 @@ const Home = () => {
             })
             .catch((e) => console.log('request_blog_err'));
 
-        axios.get('https://api.xsot.cn/weather/ip')
+        axios.get('https://x-api.timeletters.cn/weather/ip')
             .then((res) => {
                 if (res['data']['code'] === 0) {
                     setWeatherData(res['data']['data'])
