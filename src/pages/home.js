@@ -21,9 +21,9 @@ const Home = () => {
             .then((response) => setSentense(response['data']['hitokoto']))
             .catch((e) => setSentense(t('request_err')));
 
-        axios.get('https://blog.xsot.cn/api')
+        axios.get('https://blog.xsot.cn/api/')
             .then((res) => {
-                setBlogData(res['data'])
+                setBlogData(res['data'] ?? []);
                 setBlogLoad(false)
             }).catch((e) => console.log('request_blog_err'));
 
