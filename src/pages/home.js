@@ -17,16 +17,15 @@ const Home = () => {
     const HandleJump = (url) => window.open(url);
 
     useEffect(() => {
-        axios.get('https://x-api.timeletters.cn/sentence')
-            .then((response) => setSentense(response['data']['data']['sentence']))
+        axios.get('https://v1.hitokoto.cn')
+            .then((response) => setSentense(response['data']['hitokoto']))
             .catch((e) => setSentense(t('request_err')));
 
-        axios.get('https://blog.xsot.cn/sitemap/api.php')
+        axios.get('https://blog.xsot.cn/api')
             .then((res) => {
                 setBlogData(res['data'])
                 setBlogLoad(false)
-            })
-            .catch((e) => console.log('request_blog_err'));
+            }).catch((e) => console.log('request_blog_err'));
 
         axios.get('https://x-api.timeletters.cn/weather/ip')
             .then((res) => {
@@ -36,8 +35,7 @@ const Home = () => {
                 } else {
                     console.log(t('request_err'))
                 }
-            })
-            .catch((e) => console.log('request_weather_err', e));
+            }).catch((e) => console.log('request_weather_err', e));
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
@@ -164,7 +162,7 @@ const Home = () => {
                         <div style={{ height: '5px' }}></div>
                         <Divider />
                         <List>
-                            { // 我的网站
+                            {
                                 weatherLoad ? [[], [], [], []].map((item, index) => {
                                     return <ListItem button key={index}>
                                         <Skeleton width="100%" height='32px' variant="text" />
