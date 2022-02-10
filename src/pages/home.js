@@ -2,16 +2,32 @@ import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 
 import axios from "axios";
-import { Typography, Card, CardContent, Grid, Divider, List, ListItem, ListItemText, Skeleton } from "@mui/material";
+
+import {
+    Typography,
+    Card,
+    CardContent,
+    Grid,
+    Divider,
+    List,
+    ListItem,
+    ListItemText,
+    Skeleton,
+    Avatar,
+    Box,
+    Button,
+} from "@mui/material";
+
+import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
+import LinkOutlinedIcon from '@mui/icons-material/LinkOutlined';
+import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
+import CableOutlinedIcon from '@mui/icons-material/CableOutlined';
+
+import Proj from "../component/project";
 
 const Home = () => {
 
     const [sentense, setSentense] = useState('...'); //一言
-    const [blogData, setBlogData] = useState([[], [], [], []]);
-    const [weatherData, setWeatherData] = useState(null);
-
-    const [weatherLoad, setWeatherLoad] = useState(true);
-    const [blogLoad, setBlogLoad] = useState(true);
     const [t] = useTranslation('home');
 
     const HandleJump = (url) => window.open(url);
@@ -20,191 +36,128 @@ const Home = () => {
         axios.get('https://v1.hitokoto.cn')
             .then((response) => setSentense(response['data']['hitokoto']))
             .catch((e) => setSentense(t('request_err')));
-
-        axios.get('https://blog.xsot.cn/api/')
-            .then((res) => {
-                setBlogData(res['data'] ?? []);
-                setBlogLoad(false)
-            }).catch((e) => console.log('request_blog_err'));
-
-        axios.get('https://x-api.timeletters.cn/weather/ip')
-            .then((res) => {
-                if (res['data']['code'] === 0) {
-                    setWeatherData(res['data']['data'])
-                    setWeatherLoad(false);
-                } else {
-                    console.log(t('request_err'))
-                }
-            }).catch((e) => console.log('request_weather_err', e));
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     const my_project = [
-        ['timeletters', 'https://www.timeletters.cn'],
-        ['urlshorter', 'https://github.com/soxft/urlshorter'],
-        ['lovewall', 'https://love.xsot.cn'],
-        ['etc', 'https://github.com/soxft'],
+        ['timeletters', 'https://www.timeletters.cn', <EmailOutlinedIcon />],
+        //['urlshorter', 'https://github.com/soxft/urlshorter', <LinkOutlinedIcon />],
+        //['lovewall', 'https://love.xsot.cn', <FavoriteBorderOutlinedIcon />],
+        //['xopenid', 'https://9420.ltd', <CableOutlinedIcon />],
     ]
 
     return <>
-        <Grid
-            container
-            spacing={3}
+        <Box
+            sx={{
+                paddingTop: '4rem',
+                mx: 'auto',
+                width: '100%',
+                textAlign: 'center',
+            }}
         >
-            <Grid item xs={12}>
-                <Card sx={{ opacity: 0.7 }}>
-                    <CardContent>
+            <Grid
+                container
+                rowSpacing={10}
+                direction="column"
+                justifyContent="center"
+                alignItems="center"
+            >
+                <Grid
+                    container
+                    item
+                    xs={24}
+                    justifyContent="center"
+                    alignItems="center"
+                    rowSpacing={3}
+                >
+                    <Grid
+                        item
+                    >
                         <Typography
-                            variant="h5"
+                            variant="h2"
+                            color="text.secondary"
                         >
                             XCSOFT
                         </Typography>
                         <Typography
-                            variant="overline"
+                            variant="caption"
+                            color="text.secondary"
                         >
                             {sentense}
                         </Typography>
-                        <Divider style={{ paddingTop: '7px', marginBottom: '10px' }} />
-                        <Typography
-                            variant="body"
-                            sx={{ fontSize: 17 }}
+                    </Grid>
+                    <Grid
+                        item
+                        container
+                        justifyContent="center"
+                        columnSpacing={{ xs: 1, sm: 2, md: 3 }}
+                    >
+                        <Grid
+                            item
                         >
-                            <div dangerouslySetInnerHTML={{ __html: t('desc') }}></div>
-                        </Typography>
-                    </CardContent>
-                </Card>
-            </Grid>
-            <Grid item xs={12}>
-                <Card sx={{ opacity: 0.7 }}>
-                    <CardContent>
-                        { /* 我的项目 */}
+                            <Button variant="outlined">{t('blog', { 'ns': 'drawer' })}</Button>
+                        </Grid>
+                        <Grid
+                            item
+                        >
+                            <Button variant="outlined">{t('github', { 'ns': 'drawer' })}</Button>
+                        </Grid>
+                    </Grid>
+                </Grid>
+                {/* 我的项目 */}
+                <Grid
+                    item
+                    container
+                    justifyContent="center"
+                    rowSpacing={2}
+                    xs={24}
+                >
+                    <Grid
+                        item
+                    >
                         <Typography
                             variant="h5"
+                            color="#90caf9"
                         >
                             {t('my_proj')}
                         </Typography>
-                        <Typography
-                            variant="caption"
-                        >
-                            {t('my_proj_desc')}
-                        </Typography>
-                        <Divider style={{ paddingTop: '7px' }} />
-                        <List>
-                            { // 我的项目
-                                my_project.map((item, index) => {
-                                    return (
-                                        <ListItem onClick={() => HandleJump(item[1])} button key={index}>
-                                            <ListItemText
-                                                primary={<div dangerouslySetInnerHTML={{ __html: t(item[0]) }}></div>}
-                                            />
-                                        </ListItem>
-                                    );
-                                })
-                            }
-                        </List>
-                    </CardContent>
-                </Card >
-            </Grid >
-            {/* 随机文章 */}
-            < Grid item md={6} xs={12} >
-                <Card sx={{ opacity: 0.7 }}>
-                    <CardContent>
-                        <Typography
-                            variant="h5"
-                        >
-                            {t('article')}
-                        </Typography>
-                        <Typography
-                            variant="caption"
-                        >
-                            {t('article_desc')}
-                        </Typography>
-                        <Divider style={{ paddingTop: '5px' }} />
-                        <List>
-                            {
-                                blogData.map((item, index) => {
-                                    let titleRow = item['title'] ?? '';
-                                    let title = titleRow.length > 20 ? titleRow.substr(0, 20) + '...' : titleRow;
-                                    let url = item['url'];
-                                    return (
-                                        <ListItem onClick={() => blogLoad ? null : HandleJump(url)} button key={index}>
-                                            {
-                                                blogLoad ? <>
-                                                    <Skeleton
-                                                        width="100%"
-                                                        height='32px'
-                                                        variant="text"
-                                                    />
-                                                </> : <>
-                                                    <ListItemText
-                                                        primary={title}
-                                                    />
-                                                </>
-                                            }
-                                        </ListItem>
-                                    );
-                                })
-                            }
-                        </List>
-                    </CardContent>
-                </Card>
-            </Grid >
-            {/* 天气预报 */}
-            <Grid item md={6} xs={12} >
-                <Card sx={{ opacity: 0.7 }}>
-                    <CardContent>
-                        <Typography
-                            variant="h5"
-                        >
-                            {t('weather')}
-                        </Typography>
+                    </Grid>
+                    <Grid
+                        item
+                        container
+                        justifyContent="center"
+                    //columnSpacing={{ xs: 1, sm: 2, md: 3 }}
+                    //rowSpacing={3}
+                    >
                         {
-                            weatherLoad ? <Skeleton width="20%" variant="text" />
-                                : <Typography variant="caption" >
-                                    {weatherData['location']['location']}
-                                </Typography>
+                            my_project.map((item, index) => {
+                                let content = t(item[0]).split(':');
+                                return (
+                                    <Grid
+                                        item
+                                        key={index}
+                                        container
+                                        justifyContent="center"
+                                        alignItems="center"
+                                        xs={12}
+                                        sm={6}
+                                        md={4}
+                                    >
+                                        <Proj
+                                            icon={item[2]}
+                                            title={content[0]}
+                                            desc={content[1]}
+                                            url={item[1]}
+                                            key={index}
+                                        />
+                                    </Grid>
+                                )
+                            })
                         }
-                        <Divider style={{ paddingTop: '5px' }} />
-                        <List>
-                            {
-                                weatherLoad ? [[], [], [], []].map((item, index) => {
-                                    return (
-                                        <ListItem button key={index}>
-                                            <Skeleton
-                                                width="100%"
-                                                height='32px'
-                                                variant="text"
-                                            />
-                                        </ListItem>
-                                    );
-                                }) : <>
-                                    <ListItem button key={1}>
-                                        <ListItemText
-                                            primary={t('weather_update') + ': ' + weatherData['update_time']}
-                                        />
-                                    </ListItem>
-                                    <ListItem button key={2}>
-                                        <ListItemText
-                                            primary={t('weather_temperature') + ': ' + weatherData['weather'][0]['temperature']['low'] + "℃ ~ " + weatherData['weather'][0]['temperature']['high'] + '℃'}
-                                        />
-                                    </ListItem>
-                                    <ListItem button key={3}>
-                                        <ListItemText
-                                            primary={t('weather_weather') + ': ' + weatherData['weather'][0]['weather']['day'] + ' / ' + weatherData['weather'][0]['weather']['night']}
-                                        />
-                                    </ListItem>
-                                    <ListItem button key={4}>
-                                        <ListItemText
-                                            primary={t('weather_humidity') + ': ' + weatherData['weather'][0]['rain']['humidity'] + '%'}
-                                        />
-                                    </ListItem>
-                                </>
-                            }
-                        </List>
-                    </CardContent>
-                </Card>
-            </Grid >
-        </Grid >
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Box>
     </>;
 }
 

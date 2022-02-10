@@ -8,8 +8,8 @@ import {
     BookOutlined as BookIcon,
     GitHub as GitHubIcon,
     Code as CodeIcon,
-    Notes as NotesIcon,
 } from '@mui/icons-material';
+
 import {
     Typography,
     Drawer,
@@ -28,9 +28,12 @@ import {
     Container,
 } from "@mui/material";
 
+//import { useTheme } from '@mui/material/styles';
+
 import { useTranslation } from "react-i18next"
 
 const Index = () => {
+    //const theme = useTheme();
     const { t } = useTranslation('drawer');
     const [open, setOpen] = useState(false);
 
@@ -49,11 +52,14 @@ const Index = () => {
     const links = [
         ['泽', "Z", 'https://blog.stzo.cn'],
         ['源源日记', "Y", 'https://blog.bsot.cn'],
-        ['MDUI', 'M', 'https://mui.com'],
     ];
 
     return <>
-        <AppBar position="fixed" open={open} color="transparent">
+        <AppBar
+            position="fixed"
+            open={open}
+            color="inherit"
+        >
             <Toolbar>
                 <IconButton
                     color="inherit"
@@ -87,7 +93,11 @@ const Index = () => {
             onClose={() => setOpen(false)}
         >
             <Box
-                sx={{ width: 250 }}
+                sx={{
+                    width: 250,
+                    height: '100%',
+                    bgcolor: "background.default",
+                }}
                 role="presentation"
             >
                 <Toolbar>
@@ -98,8 +108,14 @@ const Index = () => {
                 <Divider />
                 {/* 我的网站 */}
                 <List
+                    sx={{
+                    }}
                     subheader={
-                        <ListSubheader component="div" id="nested-list-subheader">
+                        <ListSubheader
+                            sx={{
+                                bgcolor: "background.default",
+                            }}
+                        >
                             {t('subtitle_mysite')}
                         </ListSubheader>
                     }
@@ -110,7 +126,10 @@ const Index = () => {
                                 <ListItemIcon>
                                     {item[1]}
                                 </ListItemIcon>
-                                <ListItemText sx={{ color: 'gray' }} primary={t(item[0])} />
+                                <ListItemText
+                                    xs={{ color: "text.secondary" }}
+                                    primary={t(item[0])}
+                                />
                             </ListItem>;
                         })
                     }
@@ -119,7 +138,11 @@ const Index = () => {
                 {/* 找到我 */}
                 <List
                     subheader={
-                        <ListSubheader component="div" id="nested-list-subheader">
+                        <ListSubheader
+                            sx={{
+                                bgcolor: "background.default",
+                            }}
+                        >
                             {t('subtitle_findme')}
                         </ListSubheader>
                     }
@@ -130,7 +153,10 @@ const Index = () => {
                                 <ListItemIcon>
                                     {item[1]}
                                 </ListItemIcon>
-                                <ListItemText sx={{ color: 'gray' }} primary={t(item[0])} />
+                                <ListItemText
+                                    xs={{ color: "text.secondary" }}
+                                    primary={t(item[0])}
+                                />
                             </ListItem>;
                         })
                     }
@@ -139,7 +165,11 @@ const Index = () => {
                 {/* 推荐链接 */}
                 <List
                     subheader={
-                        <ListSubheader component="div" id="nested-list-subheader">
+                        <ListSubheader
+                            sx={{
+                                bgcolor: "background.default",
+                            }}
+                        >
                             {t('subtitle_suggest')}
                         </ListSubheader>
                     }
@@ -148,22 +178,46 @@ const Index = () => {
                         links.map((item, index) => {
                             return <ListItem onClick={() => HandleJump(item[2])} button key={index}>
                                 <ListItemAvatar>
-                                    <Avatar sx={{ bgcolor: "transparent", color: 'gray', width: 28, height: 28 }}>{item[1]}</Avatar>
+                                    <Avatar sx={{
+                                        bgcolor: "background.default",
+                                        color: "text.secondary",
+                                        width: 28,
+                                        height: 28
+                                    }}>{item[1]}</Avatar>
                                 </ListItemAvatar>
-                                <ListItemText sx={{ color: 'gray' }} primary={item[0]} />
+                                <ListItemText
+                                    xs={{ color: "text.secondary" }}
+                                    primary={item[0]}
+                                />
                             </ListItem>;
                         })
                     }
                 </List>
             </Box>
         </Drawer>
-        <Container maxWidth="xl" style={{ paddingTop: "10px", paddingBottom: "20px" }}>
-            <Outlet />
-        </Container>
+        <Box
+            sx={{
+                height: '100%',
+            }}
+        >
+            <Container
+                maxWidth="xl"
+                xs={{
+                    paddingTop: "10px",
+                    paddingBottom: "20px"
+                }}
+            >
+                <Outlet />
+            </Container>
+        </Box>
         <Typography
             variant="caption"
-            color="gray"
-            style={{ paddingLeft: "20px" }}
+            style={{
+                position: "fixed",
+                bottom: "20px",
+                left: "20px",
+            }}
+            color="text.secondary"
         >
             &ensp;Copyright 2021 xcsoft All Rights Reserved.
         </Typography>
