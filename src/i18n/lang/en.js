@@ -16,7 +16,7 @@ const en = {
         timeletters: 'Timeletters',
         openid: 'OpenID',
         blog: 'My Blog',
-        github: 'Github'
+        github: 'Github',
     },
     home: {
         desc: '&ensp;Hi there, I am xcsoft, a student from Eastern China.<br />&ensp;When I was bored, I learned many programming languages. I had exposure to cross-end software development, back-end development, and basic front-end production.<br />&ensp;Have a certain understanding of Linux operation and maintenance, and like to toss some inexplicable things.',

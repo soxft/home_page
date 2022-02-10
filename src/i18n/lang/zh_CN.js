@@ -16,7 +16,7 @@ const zh_CN = {
         timeletters: '拾光邮局',
         openid: 'OpenID',
         blog: '星辰日记',
-        github: 'Github'
+        github: 'Github',
     },
     home: {
         desc: '&emsp;Hi there, I am xcsoft, 一个来自中国东部的学生.<br />&emsp;无聊的时候, 了解过许多编程语言.接触过跨端软件开发, 后端开发, 基础前端制作.<br/>&emsp;对Linux运维有一定了解, 喜欢折腾一些莫名其妙的东西.',

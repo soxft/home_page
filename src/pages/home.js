@@ -39,6 +39,13 @@ const Home = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
+    const my_project = [
+        ['timeletters', 'https://www.timeletters.cn'],
+        ['urlshorter', 'https://github.com/soxft/urlshorter'],
+        ['lovewall', 'https://love.xsot.cn'],
+        ['etc', 'https://github.com/soxft'],
+    ]
+
     return <>
         <Grid
             container
@@ -84,12 +91,7 @@ const Home = () => {
                         <Divider style={{ paddingTop: '7px' }} />
                         <List>
                             { // 我的项目
-                                [
-                                    ['timeletters', 'https://www.timeletters.cn'],
-                                    ['urlshorter', 'https://github.com/soxft/urlshorter'],
-                                    ['lovewall', 'https://love.xsot.cn'],
-                                    ['etc', 'https://github.com/soxft'],
-                                ].map((item, index) => {
+                                my_project.map((item, index) => {
                                     return (
                                         <ListItem onClick={() => HandleJump(item[1])} button key={index}>
                                             <ListItemText
@@ -124,7 +126,6 @@ const Home = () => {
                                     let titleRow = item['title'] ?? '';
                                     let title = titleRow.length > 20 ? titleRow.substr(0, 20) + '...' : titleRow;
                                     let url = item['url'];
-
                                     return (
                                         <ListItem onClick={() => blogLoad ? null : HandleJump(url)} button key={index}>
                                             {

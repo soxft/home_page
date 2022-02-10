@@ -7,7 +7,8 @@ import {
     ChevronLeft as ChevronLeftIcon,
     BookOutlined as BookIcon,
     GitHub as GitHubIcon,
-    Code as CodeIcon
+    Code as CodeIcon,
+    Notes as NotesIcon,
 } from '@mui/icons-material';
 import {
     Typography,
@@ -34,6 +35,22 @@ const Index = () => {
     const [open, setOpen] = useState(false);
 
     const HandleJump = (url) => window.open(url);
+
+    const find_me = [
+        ['Github', <GitHubIcon />, 'https://github.com/soxft']
+    ];
+
+    const my_site = [
+        ['blog', <BookIcon />, 'https://blog.xsot.cn'],
+        ['openid', <CodeIcon />, 'https://9420.ltd'],
+        ['timeletters', <MailIcon />, 'https://www.timeletters.cn'],
+    ];
+
+    const links = [
+        ['泽', "Z", 'https://blog.stzo.cn'],
+        ['源源日记', "Y", 'https://blog.bsot.cn'],
+        ['MDUI', 'M', 'https://mui.com'],
+    ];
 
     return <>
         <AppBar position="fixed" open={open} color="transparent">
@@ -88,11 +105,7 @@ const Index = () => {
                     }
                 >
                     {
-                        [
-                            ['blog', <BookIcon />, 'https://blog.xsot.cn'],
-                            ['openid', <CodeIcon />, 'https://9420.ltd'],
-                            ['timeletters', <MailIcon />, 'https://www.timeletters.cn'],
-                        ].map((item, index) => {
+                        my_site.map((item, index) => {
                             return <ListItem onClick={() => HandleJump(item[2])} button key={index}>
                                 <ListItemIcon>
                                     {item[1]}
@@ -112,9 +125,7 @@ const Index = () => {
                     }
                 >
                     {
-                        [
-                            ['Github', <GitHubIcon />, 'https://github.com/soxft'],
-                        ].map((item, index) => {
+                        find_me.map((item, index) => {
                             return <ListItem onClick={() => HandleJump(item[2])} button key={index}>
                                 <ListItemIcon>
                                     {item[1]}
@@ -134,11 +145,7 @@ const Index = () => {
                     }
                 >
                     {
-                        [
-                            ['泽', "Z", 'https://blog.stzo.cn'],
-                            ['源源日记', "Y", 'https://blog.bsot.cn'],
-                            ['MDUI', 'M', 'https://mui.com'],
-                        ].map((item, index) => {
+                        links.map((item, index) => {
                             return <ListItem onClick={() => HandleJump(item[2])} button key={index}>
                                 <ListItemAvatar>
                                     <Avatar sx={{ bgcolor: "transparent", color: 'gray', width: 28, height: 28 }}>{item[1]}</Avatar>
