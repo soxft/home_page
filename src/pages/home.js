@@ -121,8 +121,7 @@ const Home = () => {
                 <Grid
                     item
                     container
-                    justifyContent="start"
-                    alignItems='left'
+                    justifyContent="flex-start"
                     columnSpacing={{ xs: 1, sm: 2, md: 4 }}
                     rowSpacing={3}
                 >
@@ -136,8 +135,6 @@ const Home = () => {
                                     xs={12}
                                     sm={6}
                                     md={3}
-                                    container
-                                    justifyContent="center"
                                 >
                                     <Proj
                                         icon={item[2]}

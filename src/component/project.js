@@ -11,14 +11,15 @@ const Proj = (props) => {
             sx={{
                 backgroundColor: 'transparent',
                 maxWidth: '300px',
-                minWidth: '250px',
+                minWidth: '150px',
             }}
             elevation={0}
         >
             <CardActionArea
                 onClick={() => window.open(props.url)}
                 sx={{
-                    padding: '5px',
+                    paddingTop: '5px',
+                    paddingBottom: '5px',
                     paddingLeft: '8px',
                     paddingRight: '8px',
                 }}
@@ -33,8 +34,9 @@ const Proj = (props) => {
                         item
                         sx={{
                             marginTop: '4px',
+                            color:"text.secondary",
                         }}
-                        sm={2}
+                        xs={2}
                     >
                         {props.icon}
                     </Grid>
@@ -43,16 +45,16 @@ const Proj = (props) => {
                         container
                         direction="column"
                         alignItems="flex-start"
-                        sm={10}
+                        xs={10}
                     >
                         <Grid
+                            container
                             item
                         >
                             <Typography
-                                fontSize={25}
-                                fontWeight={400}
+                                fontSize={23}
+                                fontWeight={350}
                                 color="text.primary"
-                                align="left"
                             >
                                 {props.title}
                             </Typography>
@@ -63,7 +65,6 @@ const Proj = (props) => {
                             <Typography
                                 variant="body2"
                                 color="text.secondary"
-                                align="left"
                             >
                                 {props.desc}
                             </Typography>
