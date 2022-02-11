@@ -81,12 +81,22 @@ const Home = () => {
                     <Grid
                         item
                     >
-                        <Button variant="outlined">{t('blog', { 'ns': 'drawer' })}</Button>
+                        <Button
+                            variant="outlined"
+                            onClick={() => HandleJump('https://blog.xsot.cn')}
+                        >
+                            {t('blog', { 'ns': 'drawer' })}
+                        </Button>
                     </Grid>
                     <Grid
                         item
                     >
-                        <Button variant="outlined">{t('github', { 'ns': 'drawer' })}</Button>
+                        <Button
+                            variant="outlined"
+                            onClick={() => HandleJump('https://github.com/soxft')}
+                        >
+                            {t('github', { 'ns': 'drawer' })}
+                        </Button>
                     </Grid>
                 </Grid>
             </Grid>
