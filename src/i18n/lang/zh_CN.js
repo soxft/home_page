@@ -24,13 +24,23 @@ const zh_CN = {
     },
     home: {
         my_proj: '我的项目',
-        timeletters: '拾光邮局:给未来写封信,愿你未来不负所期',
+        timeletters: '拾光邮局:给未来写封信',
         urlshorter: '星辰短域:简洁的网址缩短工具',
         lovewall: '星辰表白墙:一个简洁的表白墙',
         xopenid: 'XopenID:一个第三方登录平台',
     },
+    project: {
+        title: '项目'
+    },
     about: {
         title: '关于',
+        content: 'Hi there, 我是一个来自中国的学生 <br />' +
+            '常用语言为php, 有过 React, Flutter 跨端软件及 Uni-app 相关开发经验 <br />' +
+            '平常喜欢听听歌, 拍拍照, 写写BUG <br />' +
+            '喜欢折腾, 研究一些莫名其妙的东西 <br />',
+        sponsor: '支持我',
+        alipay: '支付宝',
+        wechat: '微信支付',
     }
 }
 

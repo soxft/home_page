@@ -26,6 +26,7 @@ import Index from './pages/index';
 import Home from './pages/home';
 import Project from './pages/project';
 import About from './pages/about';
+import Github from './component/github';
 
 import NotFound from './component/404';
 // pages END
@@ -88,6 +89,8 @@ const Main = () => {
             <Route index element={<Home />}></Route>
             <Route path='/project' element={<Project />}></Route>
             <Route path='/about' element={<About />}></Route>
+
+            <Route path='/github' element={<Github />}></Route>
           </Route>
           {/* 404 */}
           <Route

@@ -123,7 +123,8 @@ const Home = () => {
                 <Grid
                     item
                     container
-                    justifyContent="center"
+                    justifyContent="start"
+                    alignItems='left'
                     columnSpacing={{ xs: 1, sm: 2, md: 4 }}
                     rowSpacing={3}
                 >
@@ -132,35 +133,20 @@ const Home = () => {
                             let content = t(item[0]).split(':');
                             return (
                                 <Grid
-                                    item
                                     key={index}
+                                    item
                                     xs={12}
                                     sm={6}
                                     md={3}
+                                    container
+                                    justifyContent="center"
                                 >
-                                    <Card
-                                        sx={{
-                                            backgroundColor: 'transparent',
-                                        }}
-                                        elevation={0}
-                                    >
-                                        <CardActionArea
-                                            onClick={() => HandleJump(item[1])}
-                                            sx={{
-                                                padding: '5px',
-                                                paddingLeft: '8px',
-                                                paddingRight: '8px',
-                                            }}
-                                        >
-                                            <Proj
-                                                icon={item[2]}
-                                                title={content[0]}
-                                                desc={content[1]}
-                                                key={index}
-                                            />
-
-                                        </CardActionArea>
-                                    </Card>
+                                    <Proj
+                                        icon={item[2]}
+                                        title={content[0]}
+                                        desc={content[1]}
+                                        url={item[1]}
+                                    />
                                 </Grid>
                             )
                         })

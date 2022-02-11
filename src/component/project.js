@@ -1,55 +1,78 @@
 import {
+    Card,
+    CardActionArea,
     Grid,
     Typography
 } from "@mui/material";
 
 const Proj = (props) => {
     return (
-        <Grid
-            container
-            direction="row"
-            alignItems="flex-start"
-            spacing={2}
+        <Card
+            sx={{
+                backgroundColor: 'transparent',
+                maxWidth: '300px',
+                minWidth: '250px',
+            }}
+            elevation={0}
         >
-            <Grid
-                item
+            <CardActionArea
+                onClick={() => window.open(props.url)}
                 sx={{
-                    marginTop: '4px',
+                    padding: '5px',
+                    paddingLeft: '8px',
+                    paddingRight: '8px',
                 }}
-                xs={2}
-            >
-                {props.icon}
-            </Grid>
-            <Grid
-                item
-                container
-                direction="column"
-                alignItems="flex-start"
-                xs={10}
             >
                 <Grid
                     item
+                    container
+                    alignItems="flex-start"
+                    spacing={3}
                 >
-                    <Typography
-                        variant="h5"
-                        color="text.primary"
+                    <Grid
+                        item
+                        sx={{
+                            marginTop: '4px',
+                        }}
+                        sm={2}
                     >
-                        {props.title}
-                    </Typography>
-                </Grid>
-                <Grid
-                    item
-                >
-                    <Typography
-                        variant="body2"
-                        color="text.primary"
-                        align="left"
+                        {props.icon}
+                    </Grid>
+                    <Grid
+                        item
+                        container
+                        direction="column"
+                        alignItems="flex-start"
+                        sm={10}
                     >
-                        {props.desc}
-                    </Typography>
-                </Grid>
-            </Grid>
-        </Grid>);
+                        <Grid
+                            item
+                        >
+                            <Typography
+                                fontSize={25}
+                                fontWeight={400}
+                                color="text.primary"
+                                align="left"
+                            >
+                                {props.title}
+                            </Typography>
+                        </Grid>
+                        <Grid
+                            item
+                        >
+                            <Typography
+                                variant="body2"
+                                color="text.secondary"
+                                align="left"
+                            >
+                                {props.desc}
+                            </Typography>
+                        </Grid>
+                    </Grid>
+                </Grid >
+            </CardActionArea>
+        </Card>
+    );
 }
 
 export default Proj;
