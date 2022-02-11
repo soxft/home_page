@@ -10,9 +10,13 @@ const zh_CN = {
         desc: '404 您访问的页面不存在'
     },
     drawer: {
+        subtitle_index: '首页',
         subtitle_mysite: '我的网站',
         subtitle_findme: '找到我',
         subtitle_suggest: '推荐链接',
+        home: '首页',
+        project: '项目',
+        about: '关于',
         timeletters: '拾光邮局',
         openid: 'OpenID',
         blog: '星辰日记',
@@ -25,6 +29,9 @@ const zh_CN = {
         lovewall: '星辰表白墙:一个简洁的表白墙',
         xopenid: 'XopenID:一个第三方登录平台',
     },
+    about: {
+        title: '关于',
+    }
 }
 
 export default zh_CN;

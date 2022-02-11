@@ -119,11 +119,12 @@ const Home = () => {
                         {t('my_proj')}
                     </Typography>
                 </Grid>
+                {/* project list */}
                 <Grid
                     item
                     container
                     justifyContent="center"
-                    columnSpacing={{ xs: 1, sm: 2, md: 3 }}
+                    columnSpacing={{ xs: 1, sm: 2, md: 4 }}
                     rowSpacing={3}
                 >
                     {
@@ -155,7 +156,6 @@ const Home = () => {
                                                 icon={item[2]}
                                                 title={content[0]}
                                                 desc={content[1]}
-                                                url={item[1]}
                                                 key={index}
                                             />
 

@@ -10,9 +10,13 @@ const en = {
         desc: '404 Page Does\'t Exists'
     },
     drawer: {
+        subtitle_index: 'Index',
         subtitle_mysite: 'My Sites',
         subtitle_findme: 'Find Me',
         subtitle_suggest: 'Referral link',
+        home: 'Home',
+        project: 'Project',
+        about: 'About',
         timeletters: 'Timeletters',
         openid: 'OpenID',
         blog: 'My Blog',
@@ -24,7 +28,10 @@ const en = {
         urlshorter: 'Uroshorter:Concise URL shortening tool',
         lovewall: 'lovewall:Concise confession wall',
         xopenid: 'XopenID:A third-party login platform',
-    }
+    },
+    about: {
+        title: 'About',
+    },
 }
 
 export default en;

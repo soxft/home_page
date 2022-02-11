@@ -21,14 +21,13 @@ import {
 
 import GTranslateIcon from '@mui/icons-material/GTranslate';
 
-import './css/main.css';
-
 // pages
 import Index from './pages/index';
 import Home from './pages/home';
-import Proj from './component/project';
+import Project from './pages/project';
+import About from './pages/about';
 
-import NotFound from './pages/404';
+import NotFound from './component/404';
 // pages END
 
 const Main = () => {
@@ -87,11 +86,8 @@ const Main = () => {
           {/* 基础路由 */}
           <Route path='/' element={<Index />}>
             <Route index element={<Home />}></Route>
-            <Route path='/proj' element={<Proj
-              icon={<GTranslateIcon />}
-              title={t('drawer.openid')}
-              desc={t('drawer.openid_desc')}
-            />}></Route>
+            <Route path='/project' element={<Project />}></Route>
+            <Route path='/about' element={<About />}></Route>
           </Route>
           {/* 404 */}
           <Route

@@ -1,14 +1,17 @@
 import React, { useState } from "react";
-import { Outlet } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom';
 
-import {
-    Menu as MenuIcon,
-    MailOutline as MailIcon,
-    ChevronLeft as ChevronLeftIcon,
-    BookOutlined as BookIcon,
-    GitHub as GitHubIcon,
-    Code as CodeIcon,
-} from '@mui/icons-material';
+// ICON start
+import MenuIcon from '@mui/icons-material/Menu';
+import MailIcon from '@mui/icons-material/MailOutline';
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import BookIcon from '@mui/icons-material/BookOutlined';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import CodeIcon from '@mui/icons-material/Code';
+import HomeIcon from '@mui/icons-material/Home';
+import ClassOutlinedIcon from '@mui/icons-material/ClassOutlined';
+import AccountTreeOutlinedIcon from '@mui/icons-material/AccountTreeOutlined';
+// ICON end
 
 import {
     Typography,
@@ -33,9 +36,8 @@ import { useTranslation } from "react-i18next"
 const Index = () => {
     const { t } = useTranslation('drawer');
     const [open, setOpen] = useState(false);
-    const year = new Date().getFullYear();
-
     const HandleJump = (url) => window.open(url);
+    const navigate = useNavigate();
 
     const find_me = [
         ['Github', <GitHubIcon />, 'https://github.com/soxft']
@@ -99,15 +101,65 @@ const Index = () => {
                 role="presentation"
             >
                 <Toolbar>
-                    <IconButton onClick={() => setOpen(false)}>
+                    <IconButton
+                        onClick={() => setOpen(false)}
+                    >
                         <ChevronLeftIcon />
                     </IconButton>
                 </Toolbar>
                 <Divider />
+                {/* INDEX */}
+                <List
+                    subheader={
+                        <ListSubheader
+                            sx={{
+                                bgcolor: "background.default",
+                            }}
+                        >
+                            {t('subtitle_index')}
+                        </ListSubheader>
+                    }
+                >
+                    <ListItem
+                        button
+                        onClick={() => navigate('/')}
+                    >
+                        <ListItemIcon>
+                            <HomeIcon />
+                        </ListItemIcon>
+                        <ListItemText
+                            xs={{ color: "text.secondary" }}
+                            primary={t('home')}
+                        />
+                    </ListItem>
+                    <ListItem
+                        button
+                        onClick={() => navigate('/project')}
+                    >
+                        <ListItemIcon>
+                            <AccountTreeOutlinedIcon />
+                        </ListItemIcon>
+                        <ListItemText
+                            xs={{ color: "text.secondary" }}
+                            primary={t('project')}
+                        />
+                    </ListItem>
+                    <ListItem
+                        button
+                        onClick={() => navigate('/about')}
+                    >
+                        <ListItemIcon>
+                            <ClassOutlinedIcon />
+                        </ListItemIcon>
+                        <ListItemText
+                            xs={{ color: "text.secondary" }}
+                            primary={t('about')}
+                        />
+                    </ListItem>
+                </List>
+                <Divider />
                 {/* 我的网站 */}
                 <List
-                    sx={{
-                    }}
                     subheader={
                         <ListSubheader
                             sx={{
@@ -120,15 +172,21 @@ const Index = () => {
                 >
                     {
                         my_site.map((item, index) => {
-                            return <ListItem onClick={() => HandleJump(item[2])} button key={index}>
-                                <ListItemIcon>
-                                    {item[1]}
-                                </ListItemIcon>
-                                <ListItemText
-                                    xs={{ color: "text.secondary" }}
-                                    primary={t(item[0])}
-                                />
-                            </ListItem>;
+                            return (
+                                <ListItem
+                                    onClick={() => HandleJump(item[2])}
+                                    button
+                                    key={index}
+                                >
+                                    <ListItemIcon>
+                                        {item[1]}
+                                    </ListItemIcon>
+                                    <ListItemText
+                                        xs={{ color: "text.secondary" }}
+                                        primary={t(item[0])}
+                                    />
+                                </ListItem>
+                            );
                         })
                     }
                 </List>
@@ -147,15 +205,21 @@ const Index = () => {
                 >
                     {
                         find_me.map((item, index) => {
-                            return <ListItem onClick={() => HandleJump(item[2])} button key={index}>
-                                <ListItemIcon>
-                                    {item[1]}
-                                </ListItemIcon>
-                                <ListItemText
-                                    xs={{ color: "text.secondary" }}
-                                    primary={t(item[0])}
-                                />
-                            </ListItem>;
+                            return (
+                                <ListItem
+                                    onClick={() => HandleJump(item[2])}
+                                    button
+                                    key={index}
+                                >
+                                    <ListItemIcon>
+                                        {item[1]}
+                                    </ListItemIcon>
+                                    <ListItemText
+                                        xs={{ color: "text.secondary" }}
+                                        primary={t(item[0])}
+                                    />
+                                </ListItem>
+                            );
                         })
                     }
                 </List>
@@ -174,20 +238,26 @@ const Index = () => {
                 >
                     {
                         links.map((item, index) => {
-                            return <ListItem onClick={() => HandleJump(item[2])} button key={index}>
-                                <ListItemAvatar>
-                                    <Avatar sx={{
-                                        bgcolor: "background.default",
-                                        color: "text.secondary",
-                                        width: 28,
-                                        height: 28
-                                    }}>{item[1]}</Avatar>
-                                </ListItemAvatar>
-                                <ListItemText
-                                    xs={{ color: "text.secondary" }}
-                                    primary={item[0]}
-                                />
-                            </ListItem>;
+                            return (
+                                <ListItem
+                                    onClick={() => HandleJump(item[2])}
+                                    button
+                                    key={index}
+                                >
+                                    <ListItemAvatar>
+                                        <Avatar sx={{
+                                            bgcolor: "background.default",
+                                            color: "text.secondary",
+                                            width: 28,
+                                            height: 28
+                                        }}>{item[1]}</Avatar>
+                                    </ListItemAvatar>
+                                    <ListItemText
+                                        xs={{ color: "text.secondary" }}
+                                        primary={item[0]}
+                                    />
+                                </ListItem>
+                            );
                         })
                     }
                 </List>
@@ -221,7 +291,7 @@ const Index = () => {
             }}
             color="text.secondary"
         >
-            &ensp;Copyright {year} xcsoft All Rights Reserved.
+            &ensp;Copyright {new Date().getFullYear()} xcsoft All Rights Reserved.
         </Typography>
     </>;
 }
