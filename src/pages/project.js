@@ -22,7 +22,7 @@ const Project = () => {
     useEffect(() => {
         axios.get('https://api.github.com/users/soxft/repos').then(res => {
             setRepos(res.data);
-        }).catch(err => {
+        }).catch(_ => {
             setErr(true);
         }).finally(() => {
             setLoading(false);

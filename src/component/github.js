@@ -132,7 +132,6 @@ const Github = (props) => {
                             fontSize={12}
                             fontWeight={200}
                             color="text.secondary"
-                            flexWrap={'wrap'}
                         >
                             {props.desc}
                         </Typography>
@@ -141,7 +140,7 @@ const Github = (props) => {
                     <Grid
                         container
                         item
-                        justifyContent="right"
+                        justifyContent="flex-end"
                     >
                         <Typography
                             fontSize={15}
@@ -153,7 +152,7 @@ const Github = (props) => {
                     </Grid>
                 </Grid>
             </CardActionArea>
-        </Card>
+        </Card >
     );
 }
 
