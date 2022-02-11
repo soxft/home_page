@@ -28,14 +28,12 @@ import {
     Container,
 } from "@mui/material";
 
-//import { useTheme } from '@mui/material/styles';
-
 import { useTranslation } from "react-i18next"
 
 const Index = () => {
-    //const theme = useTheme();
     const { t } = useTranslation('drawer');
     const [open, setOpen] = useState(false);
+    const year = new Date().getFullYear();
 
     const HandleJump = (url) => window.open(url);
 
@@ -202,9 +200,12 @@ const Index = () => {
         >
             <Container
                 maxWidth="md"
-                xs={{
-                    paddingTop: "10px",
-                    paddingBottom: "20px"
+                sx={{
+                    paddingTop: '4rem',
+                    paddingBottom: '4rem',
+                    mx: 'auto',
+                    width: '100%',
+                    textAlign: 'center',
                 }}
             >
                 <Outlet />
@@ -212,14 +213,15 @@ const Index = () => {
         </Box>
         <Typography
             variant="caption"
-            style={{
+            sx={{
                 position: "fixed",
                 bottom: "20px",
                 left: "20px",
+                opacity: 0.3,
             }}
             color="text.secondary"
         >
-            &ensp;Copyright 2021 xcsoft All Rights Reserved.
+            &ensp;Copyright {year} xcsoft All Rights Reserved.
         </Typography>
     </>;
 }
