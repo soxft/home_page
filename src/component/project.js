@@ -65,6 +65,7 @@ const Proj = (props) => {
                             <Typography
                                 variant="body2"
                                 color="text.secondary"
+                                align="left"
                             >
                                 {props.desc}
                             </Typography>
