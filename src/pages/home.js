@@ -5,10 +5,8 @@ import axios from "axios";
 
 import {
     Typography,
-    Card,
     Grid,
     Button,
-    CardActionArea,
 } from "@mui/material";
 
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
@@ -28,7 +26,7 @@ const Home = () => {
     useEffect(() => {
         axios.get('https://v1.hitokoto.cn')
             .then((response) => setSentense(response['data']['hitokoto']))
-            .catch((e) => setSentense(t('request_err')));
+            .catch((e) => setSentense(t('request_err', { 'ns': 'global' })));
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
