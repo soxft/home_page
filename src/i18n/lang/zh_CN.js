@@ -20,9 +20,9 @@ const zh_CN = {
     },
     home: {
         my_proj: '我的项目',
-        timeletters: '拾光邮局:给未来写封信',
+        timeletters: '拾光邮局:给未来写封信,愿你未来不负所期',
         urlshorter: '星辰短域:简洁的网址缩短工具',
-        lovewall: '星辰表白墙:简洁的表白墙',
+        lovewall: '星辰表白墙:一个简洁的表白墙',
         xopenid: 'XopenID:一个第三方登录平台',
     },
 }

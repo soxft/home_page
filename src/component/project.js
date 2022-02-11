@@ -6,14 +6,17 @@ import {
 const Proj = (props) => {
     return (
         <Grid
-            item
             container
             direction="row"
-            justifyContent="flex-start"
             alignItems="flex-start"
+            spacing={2}
         >
             <Grid
                 item
+                sx={{
+                    marginTop: '4px',
+                }}
+                xs={2}
             >
                 {props.icon}
             </Grid>
@@ -21,14 +24,11 @@ const Proj = (props) => {
                 item
                 container
                 direction="column"
-                justifyContent="flex-start"
-                xs={12}
-                sm
+                alignItems="flex-start"
+                xs={10}
             >
                 <Grid
                     item
-                    rowSpacing={2}
-                    xs
                 >
                     <Typography
                         variant="h5"
@@ -39,11 +39,11 @@ const Proj = (props) => {
                 </Grid>
                 <Grid
                     item
-                    xs
                 >
                     <Typography
-                        variant="body1"
+                        variant="body2"
                         color="text.primary"
+                        align="left"
                     >
                         {props.desc}
                     </Typography>

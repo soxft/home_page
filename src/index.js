@@ -2,36 +2,34 @@
  * @author xcsoft<contact@xcsoft.top>
  */
 import React, { useEffect, useState } from 'react';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import ReactDOM from 'react-dom';
 import { HashRouter as Router, Route, Routes } from 'react-router-dom';
-
 import { Helmet } from "react-helmet";
 
 import i18n from './i18n/i18n'; //国际化
 import { useTranslation } from "react-i18next"
+
+
+import {
+  Fab,
+  Menu,
+  MenuItem,
+  createTheme,
+  ThemeProvider,
+} from '@mui/material';
+
+import GTranslateIcon from '@mui/icons-material/GTranslate';
 
 import './css/main.css';
 
 // pages
 import Index from './pages/index';
 import Home from './pages/home';
+import Proj from './component/project';
 
-import NotFound from './pages/not_found';
+import NotFound from './pages/404';
 // pages END
-
-import useMediaQuery from '@mui/material/useMediaQuery';
-
-import {
-  Fab,
-  Menu,
-  MenuItem,
-  Container,
-  Typography,
-  createTheme,
-  ThemeProvider,
-} from '@mui/material';
-
-import GTranslateIcon from '@mui/icons-material/GTranslate';
 
 const Main = () => {
   const { t } = useTranslation('desc');
@@ -89,6 +87,11 @@ const Main = () => {
           {/* 基础路由 */}
           <Route path='/' element={<Index />}>
             <Route index element={<Home />}></Route>
+            <Route path='/proj' element={<Proj
+              icon={<GTranslateIcon />}
+              title={t('drawer.openid')}
+              desc={t('drawer.openid_desc')}
+            />}></Route>
           </Route>
           {/* 404 */}
           <Route

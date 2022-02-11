@@ -6,16 +6,11 @@ import axios from "axios";
 import {
     Typography,
     Card,
-    CardContent,
     Grid,
     Divider,
-    List,
-    ListItem,
-    ListItemText,
-    Skeleton,
-    Avatar,
     Box,
     Button,
+    CardActionArea,
 } from "@mui/material";
 
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
@@ -41,9 +36,9 @@ const Home = () => {
 
     const my_project = [
         ['timeletters', 'https://www.timeletters.cn', <EmailOutlinedIcon />],
-        //['urlshorter', 'https://github.com/soxft/urlshorter', <LinkOutlinedIcon />],
-        //['lovewall', 'https://love.xsot.cn', <FavoriteBorderOutlinedIcon />],
-        //['xopenid', 'https://9420.ltd', <CableOutlinedIcon />],
+        ['urlshorter', 'https://github.com/soxft/urlshorter', <LinkOutlinedIcon />],
+        ['lovewall', 'https://love.xsot.cn', <FavoriteBorderOutlinedIcon />],
+        ['xopenid', 'https://9420.ltd', <CableOutlinedIcon />],
     ]
 
     return <>
@@ -91,6 +86,7 @@ const Home = () => {
                         container
                         justifyContent="center"
                         columnSpacing={{ xs: 1, sm: 2, md: 3 }}
+                        rowSpacing={1}
                     >
                         <Grid
                             item
@@ -108,9 +104,10 @@ const Home = () => {
                 <Grid
                     item
                     container
-                    justifyContent="center"
-                    rowSpacing={2}
-                    xs={24}
+                    direction="row"
+                    justifyContent="space-evenly"
+                    alignItems="flex-start"
+                    rowSpacing={4}
                 >
                     <Grid
                         item
@@ -126,8 +123,8 @@ const Home = () => {
                         item
                         container
                         justifyContent="center"
-                    //columnSpacing={{ xs: 1, sm: 2, md: 3 }}
-                    //rowSpacing={3}
+                        columnSpacing={{ xs: 1, sm: 2, md: 3 }}
+                        rowSpacing={3}
                     >
                         {
                             my_project.map((item, index) => {
@@ -136,20 +133,34 @@ const Home = () => {
                                     <Grid
                                         item
                                         key={index}
-                                        container
-                                        justifyContent="center"
-                                        alignItems="center"
                                         xs={12}
                                         sm={6}
-                                        md={4}
+                                        md={3}
                                     >
-                                        <Proj
-                                            icon={item[2]}
-                                            title={content[0]}
-                                            desc={content[1]}
-                                            url={item[1]}
-                                            key={index}
-                                        />
+                                        <Card
+                                            sx={{
+                                                backgroundColor: 'transparent',
+                                            }}
+                                            elevation={0}
+                                        >
+                                            <CardActionArea
+                                                onClick={() => HandleJump(item[1])}
+                                                sx={{
+                                                    padding: '5px',
+                                                    paddingLeft: '8px',
+                                                    paddingRight: '8px',
+                                                }}
+                                            >
+                                                <Proj
+                                                    icon={item[2]}
+                                                    title={content[0]}
+                                                    desc={content[1]}
+                                                    url={item[1]}
+                                                    key={index}
+                                                />
+
+                                            </CardActionArea>
+                                        </Card>
                                     </Grid>
                                 )
                             })

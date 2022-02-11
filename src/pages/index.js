@@ -201,7 +201,7 @@ const Index = () => {
             }}
         >
             <Container
-                maxWidth="xl"
+                maxWidth="md"
                 xs={{
                     paddingTop: "10px",
                     paddingBottom: "20px"
