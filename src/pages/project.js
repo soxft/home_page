@@ -78,8 +78,8 @@ const Project = () => {
                                         >
                                             <Skeleton
                                                 animation="wave"
-                                                width={250}
-                                                height={80}
+                                                width={300}
+                                                height={120}
                                             />
                                         </Grid>
                                     );
