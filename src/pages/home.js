@@ -11,7 +11,7 @@ import {
 
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
 import LinkOutlinedIcon from '@mui/icons-material/LinkOutlined';
-import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
+import FilterDramaOutlinedIcon from '@mui/icons-material/FilterDramaOutlined';
 import CableOutlinedIcon from '@mui/icons-material/CableOutlined';
 
 import Proj from "../component/project";
@@ -33,7 +33,7 @@ const Home = () => {
     const my_project = [
         ['timeletters', 'https://www.timeletters.cn', <EmailOutlinedIcon />],
         ['urlshorter', 'https://github.com/soxft/urlshorter', <LinkOutlinedIcon />],
-        ['lovewall', 'https://love.xsot.cn', <FavoriteBorderOutlinedIcon />],
+        ['serverStatus', 'https://github.com/soxft/lovewall', <FilterDramaOutlinedIcon />],
         ['xopenid', 'https://9420.ltd', <CableOutlinedIcon />],
     ]
 

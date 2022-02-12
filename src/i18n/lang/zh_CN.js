@@ -28,6 +28,7 @@ const zh_CN = {
         urlshorter: '星辰短域:简洁的网址缩短工具',
         lovewall: '星辰表白墙:一个简洁的表白墙',
         xopenid: 'OpenID:一个第三方登录平台',
+        serverStatus: '探针:简洁的服务器探针'
     },
     project: {
         title: '项目'
