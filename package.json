@@ -19,14 +19,12 @@
     "react-helmet": "^6.1.0",
     "react-i18next": "^11.15.1",
     "react-router-dom": "^6.2.1",
-    "react-scripts": "5.0.0",
-    "web-vitals": "^2.1.2"
+    "react-scripts": "5.0.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "GENERATE_SOURCEMAP=false react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "react-app-rewired start",
+    "build": "GENERATE_SOURCEMAP=false react-app-rewired build",
+    "test": "react-scripts test"
   },
   "eslintConfig": {
     "extends": [
@@ -45,5 +43,12 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "customize-cra": "^1.0.0",
+    "less": "4.1.1",
+    "less-loader": "7.3.0",
+    "react-app-rewired": "^2.1.11",
+    "webpack-bundle-analyzer": "^4.5.0"
   }
 }
