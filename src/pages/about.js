@@ -18,7 +18,7 @@ const About = () => {
     const payMethod = [
         ['alipay', 'https://qr.alipay.com/fkx15638lyxqs3hlajhdv3c'],
         ['wechat', 'wxp://f2f0TRR_wAwKpE4IBz7oCgrQI5992xfIx5slf5dZtNJN7czxV7cQLdCb-9D-x8xWZX0V'],
-        ['PayPal', 'https://paypal.me/xcsoft?country.x=C2%26locale.x=zh_XC'],
+        ['paypal', 'https://paypal.me/xcsoft?country.x=C2%26locale.x=zh_XC'],
     ]
 
     return (
