@@ -7,9 +7,13 @@ import {
     CardMedia,
 } from "@mui/material";
 
+import QRCode from 'qrcode.react';
+import { useTheme } from '@mui/material/styles';
+
 const About = () => {
 
     const [t] = useTranslation('about');
+    const theme = useTheme();
 
     return (
         <>
@@ -67,19 +71,23 @@ const About = () => {
                     >
                         <Card
                             sx={{
-                                maxWidth: '300px',
+                                backgroundColor: 'transparent',
                             }}
+                            elevation={0}
                         >
-                            <CardMedia
-                                component="img"
-                                alt={t('alipay')}
-                                image="https://cdn.timeletters.cn/pay/alipay.jpeg"
-                            />
+                            <CardMedia>
+                                <QRCode
+                                    value="https://qr.alipay.com/fkx15638lyxqs3hlajhdv3c"
+                                    size={250}
+                                    bgColor={theme.palette.background.default}
+                                    fgColor={theme.palette.text.primary}
+                                />
+                            </CardMedia>
                             <Typography
                                 variant="h5"
                                 component="div"
                                 sx={{
-                                    padding: '15px',
+                                    padding: '10px',
                                 }}
                             >
                                 {t('alipay')}
@@ -95,19 +103,23 @@ const About = () => {
                     >
                         <Card
                             sx={{
-                                maxWidth: '300px',
+                                backgroundColor: 'transparent',
                             }}
+                            elevation={0}
                         >
-                            <CardMedia
-                                component="img"
-                                alt={t('wechat')}
-                                image="https://cdn.timeletters.cn/pay/wechat.jpeg"
-                            />
+                            <CardMedia>
+                                <QRCode
+                                    value="wxp://f2f0TRR_wAwKpE4IBz7oCgrQI5992xfIx5slf5dZtNJN7czxV7cQLdCb-9D-x8xWZX0V"
+                                    size={250}
+                                    bgColor={theme.palette.background.default}
+                                    fgColor={theme.palette.text.primary}
+                                />
+                            </CardMedia>
                             <Typography
                                 variant="h5"
                                 component="div"
                                 sx={{
-                                    padding: '15px',
+                                    padding: '10px',
                                 }}
                             >
                                 {t('wechat')}
