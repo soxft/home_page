@@ -33,7 +33,7 @@ const Home = () => {
     const my_project = [
         ['timeletters', 'https://www.timeletters.cn', <EmailOutlinedIcon />],
         ['urlshorter', 'https://github.com/soxft/urlshorter', <LinkOutlinedIcon />],
-        ['serverStatus', 'https://github.com/soxft/lovewall', <FilterDramaOutlinedIcon />],
+        ['serverStatus', 'https://github.com/soxft/serverStatus', <FilterDramaOutlinedIcon />],
         ['xopenid', 'https://9420.ltd', <CableOutlinedIcon />],
     ]
 
