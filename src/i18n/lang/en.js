@@ -26,7 +26,6 @@ const en = {
         my_proj: 'My project',
         timeletters: 'Timeletters:Write a letter to the future',
         urlshorter: 'Uroshorter:Concise url shortening tool',
-        lovewall: 'lovewall:Concise confession wall',
         xopenid: 'XopenID:A third-party login platform',
         serverStatus: 'serverStatus:a simple server status probe',
     },
