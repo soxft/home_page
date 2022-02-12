@@ -36,8 +36,13 @@ import { useTranslation } from "react-i18next"
 const Index = () => {
     const { t } = useTranslation('drawer');
     const [open, setOpen] = useState(false);
-    const HandleJump = (url) => window.open(url);
     const navigate = useNavigate();
+
+    const HandleJump = (url) => window.open(url);
+    const HandleNavigate = (url) => {
+        setOpen(false);
+        navigate(url);
+    }
 
     const find_me = [
         ['Github', <GitHubIcon />, 'https://github.com/soxft']
@@ -122,7 +127,7 @@ const Index = () => {
                 >
                     <ListItem
                         button
-                        onClick={() => navigate('/')}
+                        onClick={() => HandleNavigate('/')}
                     >
                         <ListItemIcon>
                             <HomeIcon />
@@ -134,7 +139,7 @@ const Index = () => {
                     </ListItem>
                     <ListItem
                         button
-                        onClick={() => navigate('/project')}
+                        onClick={() => HandleNavigate('/project')}
                     >
                         <ListItemIcon>
                             <AccountTreeOutlinedIcon />
@@ -146,7 +151,7 @@ const Index = () => {
                     </ListItem>
                     <ListItem
                         button
-                        onClick={() => navigate('/about')}
+                        onClick={() => HandleNavigate('/about')}
                     >
                         <ListItemIcon>
                             <ClassOutlinedIcon />
