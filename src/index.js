@@ -63,7 +63,7 @@ const Main = () => {
             paper: prefersDarkMode ? '#424242' : '#fff',
           },
           text: {
-            primary: !prefersDarkMode ? 'rgba(0, 0, 0, 0.7)' : '#fff',
+            primary: !prefersDarkMode ? 'rgba(0, 0, 0, 0.7)' : 'rgba(255, 255, 255, 0.85)',
             secondary: !prefersDarkMode ? 'rgba(0, 0, 0, 0.55)' : 'rgba(255, 255, 255, 0.7)',
             disabled: !prefersDarkMode ? 'rgba(0, 0, 0, 0.38)' : 'rgba(255, 255, 255, 0.5)',
           },

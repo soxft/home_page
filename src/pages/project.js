@@ -51,7 +51,7 @@ const Project = () => {
                         <Typography
                             fontSize={44}
                             fontWeight={350}
-                            color="text.secondary"
+                            color="text.primary"
                         >
                             {t('title')}
                         </Typography>

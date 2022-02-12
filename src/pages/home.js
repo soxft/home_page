@@ -44,6 +44,9 @@ const Home = () => {
             direction="column"
             justifyContent="center"
             alignItems="center"
+            sx={{
+                paddingTop: '30px',
+            }}
         >
             <Grid
                 container
@@ -57,8 +60,9 @@ const Home = () => {
                     item
                 >
                     <Typography
-                        variant="h2"
-                        color="text.secondary"
+                        fontSize={80}
+                        fontWeight={250}
+                        color="text.primary"
                     >
                         XCSOFT
                     </Typography>
@@ -111,8 +115,9 @@ const Home = () => {
                     item
                 >
                     <Typography
-                        variant="h5"
-                        color="#90caf9"
+                        fontSize={30}
+                        fontWeight={350}
+                        color="text.primary"
                     >
                         {t('my_proj')}
                     </Typography>

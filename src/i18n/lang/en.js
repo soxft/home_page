@@ -34,10 +34,10 @@ const en = {
     },
     about: {
         title: 'About',
-        content: 'Hi there, I am a student from china <br />' +
-            'php is one of my common development languages, and I have experience in React, Flutter cross-end software and Uni-app <br />' +
-            'Usually I like to listen to songs, take pictures, write bugs <br />' +
-            'I love tossing around and researching something inexplicable <br />',
+        content: 'Hi there, I am a student from china, <br />' +
+            'php is one of my common development languages, and I have experience in React, Flutter cross-end software and Uni-app, <br />' +
+            'Usually I like to listen to songs, take pictures, write bugs, <br />' +
+            'I love tossing around and researching something inexplicable, <br />',
         sponsor: 'Sponsor',
         alipay: 'Alipay',
         wechat: 'Wechat Pay',

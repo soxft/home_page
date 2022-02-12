@@ -34,10 +34,10 @@ const zh_CN = {
     },
     about: {
         title: '关于',
-        content: 'Hi there, 我是一个来自中国的学生 <br />' +
-            '常用语言为php, 有过 React, Flutter 跨端软件及 Uni-app 相关开发经验 <br />' +
-            '平常喜欢听听歌, 拍拍照, 写写BUG <br />' +
-            '喜欢折腾, 研究一些莫名其妙的东西 <br />',
+        content: 'Hi there, 我是一个来自中国的学生, <br />' +
+            '常用语言为php, 有过 React, Flutter 跨端软件及 Uni-app 相关开发经验, <br />' +
+            '平常喜欢听听歌, 拍拍照, 写写BUG, <br />' +
+            '喜欢折腾, 研究一些莫名其妙的东西, <br />',
         sponsor: '支持我',
         alipay: '支付宝',
         wechat: '微信支付',
