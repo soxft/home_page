@@ -62,11 +62,12 @@ const About = () => {
                     rowSpacing={3}
                     columnSpacing={3}
                 >
+                    {/* Alipay */}
                     <Grid
                         container
                         item
                         xs={12}
-                        sm={6}
+                        sm={4}
                         justifyContent="center"
                     >
                         <Card
@@ -78,7 +79,7 @@ const About = () => {
                             <CardMedia>
                                 <QRCode
                                     value="https://qr.alipay.com/fkx15638lyxqs3hlajhdv3c"
-                                    size={250}
+                                    size={160}
                                     bgColor={theme.palette.background.default}
                                     fgColor={theme.palette.text.primary}
                                 />
@@ -94,11 +95,12 @@ const About = () => {
                             </Typography>
                         </Card>
                     </Grid>
+                    {/* WeChat */}
                     <Grid
                         container
                         item
                         xs={12}
-                        sm={6}
+                        sm={4}
                         justifyContent="center"
                     >
                         <Card
@@ -110,7 +112,7 @@ const About = () => {
                             <CardMedia>
                                 <QRCode
                                     value="wxp://f2f0TRR_wAwKpE4IBz7oCgrQI5992xfIx5slf5dZtNJN7czxV7cQLdCb-9D-x8xWZX0V"
-                                    size={250}
+                                    size={160}
                                     bgColor={theme.palette.background.default}
                                     fgColor={theme.palette.text.primary}
                                 />
@@ -123,6 +125,39 @@ const About = () => {
                                 }}
                             >
                                 {t('wechat')}
+                            </Typography>
+                        </Card>
+                    </Grid>
+                    {/* PayPal */}
+                    <Grid
+                        container
+                        item
+                        xs={12}
+                        sm={4}
+                        justifyContent="center"
+                    >
+                        <Card
+                            sx={{
+                                backgroundColor: 'transparent',
+                            }}
+                            elevation={0}
+                        >
+                            <CardMedia>
+                                <QRCode
+                                    value="https://paypal.me/xcsoft?country.x=C2%26locale.x=zh_XC"
+                                    size={160}
+                                    bgColor={theme.palette.background.default}
+                                    fgColor={theme.palette.text.primary}
+                                />
+                            </CardMedia>
+                            <Typography
+                                variant="h5"
+                                component="div"
+                                sx={{
+                                    padding: '10px',
+                                }}
+                            >
+                                PayPal
                             </Typography>
                         </Card>
                     </Grid>
