@@ -32,9 +32,9 @@ const Home = () => {
 
     const my_project = [
         ['timeletters', 'https://www.timeletters.cn', <EmailOutlinedIcon />],
+        ['xopenid', 'https://9420.ltd', <CableOutlinedIcon />],
         ['urlshorter', 'https://github.com/soxft/urlshorter', <LinkOutlinedIcon />],
         ['serverStatus', 'https://github.com/soxft/serverStatus', <FilterDramaOutlinedIcon />],
-        ['xopenid', 'https://9420.ltd', <CableOutlinedIcon />],
     ]
 
     return <>
