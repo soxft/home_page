@@ -23,10 +23,10 @@ import {
 import GTranslateIcon from '@mui/icons-material/GTranslate';
 
 // pages
-//import Index from './pages/index';
-//import Home from './pages/home';
-//import Project from './pages/project';
-//import About from './pages/about';
+import Index from './pages/index';
+import Home from './pages/home';
+import Project from './pages/project';
+import About from './pages/about';
 
 //import NotFound from './component/404';
 // pages END
@@ -75,30 +75,6 @@ const Main = () => {
       }),
     [prefersDarkMode],
   );
-
-  const Index = Loadable({
-    loader: () => import('./pages/index'),
-    loading: () => null,
-    delay: 0,
-  });
-
-  const Home = Loadable({
-    loader: () => import('./pages/home'),
-    loading: () => null,
-    delay: 0,
-  });
-
-  const Project = Loadable({
-    loader: () => import('./pages/project'),
-    loading: () => null,
-    delay: 0,
-  });
-
-  const About = Loadable({
-    loader: () => import('./pages/about'),
-    loading: () => null,
-    delay: 0,
-  });
 
   const NotFound = Loadable({
     loader: () => import('./component/404'),
