@@ -79,25 +79,25 @@ const Main = () => {
   const Index = Loadable({
     loader: () => import('./pages/index'),
     loading: () => null,
-    delay: 0,
+    delay: 10,
   });
 
   const Home = Loadable({
     loader: () => import('./pages/home'),
     loading: () => null,
-    delay: 0,
+    delay: 50,
   });
 
   const Project = Loadable({
     loader: () => import('./pages/project'),
     loading: () => null,
-    delay: 0,
+    delay: 50,
   });
 
   const About = Loadable({
     loader: () => import('./pages/about'),
     loading: () => null,
-    delay: 0,
+    delay: 50,
   });
 
   const NotFound = Loadable({
