@@ -6,6 +6,7 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import ReactDOM from 'react-dom';
 import { HashRouter as Router, Route, Routes } from 'react-router-dom';
 import { Helmet } from "react-helmet";
+import Loadable from 'react-loadable';
 
 import i18n from './i18n/i18n'; //国际化
 import { useTranslation } from "react-i18next"
@@ -22,13 +23,12 @@ import {
 import GTranslateIcon from '@mui/icons-material/GTranslate';
 
 // pages
-import Index from './pages/index';
-import Home from './pages/home';
-import Project from './pages/project';
-import About from './pages/about';
-import Github from './component/github';
+//import Index from './pages/index';
+//import Home from './pages/home';
+//import Project from './pages/project';
+//import About from './pages/about';
 
-import NotFound from './component/404';
+//import NotFound from './component/404';
 // pages END
 
 const Main = () => {
@@ -53,6 +53,10 @@ const Main = () => {
   // dark mode
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
 
+  useEffect(() => {
+    window.document.body.style.backgroundColor = prefersDarkMode ? '#303030' : '#fafafa';
+  }, [prefersDarkMode]);
+
   const theme = React.useMemo(
     () =>
       createTheme({
@@ -72,9 +76,36 @@ const Main = () => {
     [prefersDarkMode],
   );
 
-  useEffect(() => {
-    window.document.body.style.backgroundColor = prefersDarkMode ? '#303030' : '#fafafa';
-  }, [prefersDarkMode]);
+  const Index = Loadable({
+    loader: () => import('./pages/index'),
+    loading: () => null,
+    delay: 0,
+  });
+
+  const Home = Loadable({
+    loader: () => import('./pages/home'),
+    loading: () => null,
+    delay: 0,
+  });
+
+  const Project = Loadable({
+    loader: () => import('./pages/project'),
+    loading: () => null,
+    delay: 0,
+  });
+
+  const About = Loadable({
+    loader: () => import('./pages/about'),
+    loading: () => null,
+    delay: 0,
+  });
+
+  const NotFound = Loadable({
+    loader: () => import('./component/404'),
+    loading: () => null,
+    delay: 200,
+  });
+
 
   return <>
     <ThemeProvider theme={theme}>
@@ -89,8 +120,6 @@ const Main = () => {
             <Route index element={<Home />}></Route>
             <Route path='/project' element={<Project />}></Route>
             <Route path='/about' element={<About />}></Route>
-
-            <Route path='/github' element={<Github />}></Route>
           </Route>
           {/* 404 */}
           <Route
