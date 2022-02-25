@@ -1,21 +1,9 @@
 const {
     override,
-    //fixBabelImports,
-    //addWebpackExternals,
-    //addWebpackPlugin
+    useBabelRc,
 } = require('customize-cra');
 //const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
-module.exports = override(
-    /* 
-    addWebpackPlugin(
-         new BundleAnalyzerPlugin({
-             analyzerMode: 'static',
-         })
-     ),
-     (config) => {
-         config.output.publicPath = "https://cdn.timeletters.cn/home_page/"
-         return config;
-     }
-     */
-);
+/* config-overrides.js */
+/* eslint-disable react-hooks/rules-of-hooks */
+module.exports = override(useBabelRc());
