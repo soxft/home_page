@@ -38,7 +38,11 @@ jobs:
         uses: pixta-dev/repository-mirroring-action@v1
         with:
           target_repo_url:
-            git@xcsoft.oicp.vip:51258:soxft/home_page.git
+            ssh://git.iirose.cn/soxft/home_page.git
           ssh_private_key:
             ${{ secrets.KEY }}
 
+  test_ipv6:
+    runs-on: ubuntu-latest
+    steps:
+      - run: curl -6 ip.sb
