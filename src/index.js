@@ -6,7 +6,7 @@ import ReactDOM from 'react-dom';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { HashRouter as Router, Route, Routes } from 'react-router-dom';
 import { Helmet } from "react-helmet";
-import Loadable from '@includes/loadable';
+import Loadable from 'react-loadable';
 
 import i18n from '@i18n/i18n';
 import { useTranslation } from "react-i18next"
@@ -20,6 +20,14 @@ import {
 } from '@mui/material';
 
 import GTranslateIcon from '@mui/icons-material/GTranslate';
+
+// pages
+import Index from './pages/index';
+import Home from './pages/home';
+import About from './pages/about';
+
+//import NotFound from './component/404';
+// pages END
 
 const Main = () => {
   const { t } = useTranslation('desc');
@@ -47,12 +55,6 @@ const Main = () => {
     window.document.body.style.backgroundColor = prefersDarkMode ? '#303030' : '#fafafa';
   }, [prefersDarkMode]);
 
-  const Index = Loadable({ loader: () => import('@pages/index') });
-  const Home = Loadable({ loader: () => import('@pages/home') });
-  const Project = Loadable({ loader: () => import('@pages/project') });
-  const About = Loadable({ loader: () => import('@pages/about') });
-  const NotFound = Loadable({ loader: () => import('@components/404') });
-
   const theme = React.useMemo(
     () =>
       createTheme({
@@ -71,6 +73,18 @@ const Main = () => {
       }),
     [prefersDarkMode],
   );
+
+  const Project = Loadable({
+    loader: () => import('@components/project'),
+    loading: () => null,
+    delay: 200,
+  });
+
+  const NotFound = Loadable({
+    loader: () => import('@components/404'),
+    loading: () => null,
+    delay: 200,
+  });
 
   return <>
     <ThemeProvider theme={theme}>
