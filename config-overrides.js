@@ -1,5 +1,4 @@
 const { override, addWebpackPlugin } = require('customize-cra')
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const HtmlWebpackExternalsPlugin = require('html-webpack-externals-plugin');
 const path = require('path')
 
