@@ -22,9 +22,10 @@ import {
 import GTranslateIcon from '@mui/icons-material/GTranslate';
 
 // pages
-import Index from './pages/index';
-import Home from './pages/home';
-import About from './pages/about';
+import Index from '@pages/index';
+import Home from '@pages/home';
+import Project from '@pages/project';
+import About from '@pages/about';
 
 //import NotFound from './component/404';
 // pages END
@@ -73,12 +74,6 @@ const Main = () => {
       }),
     [prefersDarkMode],
   );
-
-  const Project = Loadable({
-    loader: () => import('@components/project'),
-    loading: () => null,
-    delay: 200,
-  });
 
   const NotFound = Loadable({
     loader: () => import('@components/404'),
