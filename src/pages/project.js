@@ -11,7 +11,7 @@ import {
     Alert,
 } from "@mui/material";
 
-import Github from "../component/github";
+import Github from "@components/github";
 
 const Project = () => {
     const [err, setErr] = useState(false);

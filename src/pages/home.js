@@ -14,7 +14,7 @@ import LinkOutlinedIcon from '@mui/icons-material/LinkOutlined';
 import FilterDramaOutlinedIcon from '@mui/icons-material/FilterDramaOutlined';
 import CableOutlinedIcon from '@mui/icons-material/CableOutlined';
 
-import Proj from "../component/project";
+import Proj from "@components/project";
 
 const Home = () => {
 
