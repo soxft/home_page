@@ -1,6 +1,6 @@
 # home_page
 
-this is the source code of xsot.cn
+this is the previous version of xsot.cn
 
 # help
 
